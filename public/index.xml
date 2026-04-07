@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Riclivo</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Riclivo</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Apr 2026 05:00:55 -0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My First Post</title>
+      <link>http://localhost:1313/post/my-first-post/</link>
+      <pubDate>Mon, 06 Apr 2026 05:00:55 -0700</pubDate>
+      <guid>http://localhost:1313/post/my-first-post/</guid>
+      <description>&lt;p&gt;I checked comments on a viral video… something feels off&lt;/p&gt;
+&lt;p&gt;I was going through comments on a trending video and noticed something weird.&lt;/p&gt;
+&lt;p&gt;A lot of them looked almost identical.
+Same kind of wording, same tone.&lt;/p&gt;
+&lt;p&gt;Not saying they’re bots for sure… but it made me question how real comment sections actually are.&lt;/p&gt;
+&lt;p&gt;Has anyone else noticed this?&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

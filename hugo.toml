@@ -1,0 +1,22 @@
+baseURL = "https://riclivo.org/"
+languageCode = "en-us"
+title = "Riclivo"
+theme = "PaperMod"
+
+[params]
+  homeInfoParams = {Title = "Welcome to Riclivo", Content = "Thoughts, stories and ideas"}
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowToc = true
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 2
