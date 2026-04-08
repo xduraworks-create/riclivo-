@@ -21,11 +21,27 @@ theme = "PaperMod"
 
 [[params.socialIcons]]
   name = "twitter"
-  url = "https://twitter.com/YOURTWITTERHANDLE"
+  url = "https://twitter.com/@DSpecialman"
 
 [[params.socialIcons]]
   name = "instagram"
-  url = "https://instagram.com/YOURINSTAGRAMHANDLE"
+  url = "https://instagram.com/@riclivo"
+
+[[params.socialIcons]]
+  name = "youtube"
+  url = "https://youtube.com/@RiclivoTv"
+
+[[params.socialIcons]]
+  name = "pinterest"
+  url = "https://pinterest.com/YOURPINTERESTHANDLE"
+
+[[params.socialIcons]]
+  name = "reddit"
+  url = "https://reddit.com/u/@riclivo"
+
+[[params.socialIcons]]
+  name = "tiktok"
+  url = "https://tiktok.com/@YOURTIKTOKHANDLE"
 
 [menu]
   [[menu.main]]
