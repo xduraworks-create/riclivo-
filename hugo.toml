@@ -1,15 +1,31 @@
-baseURL = "https://riclivo.org/"
+baseURL = "https://riclivo.online/"
 languageCode = "en-us"
 title = "Riclivo"
 theme = "PaperMod"
 
 [params]
-  homeInfoParams = {Title = "Welcome to Riclivo", Content = "Thoughts, stories and ideas"}
+  homeInfoParams = {Title = "Welcome to Riclivo 🌍", Content = "Your daily source for Tech, Health, Finance, Entertainment & Football news"}
   ShowReadingTime = true
   ShowShareButtons = true
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
   ShowToc = true
+  ShowCodeCopyButtons = true
+  defaultTheme = "auto"
+  DateFormat = "January 2, 2006"
+  description = "Tech, Health, Finance, Entertainment and Football news for the world"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[[params.socialIcons]]
+  name = "twitter"
+  url = "https://twitter.com/YOURTWITTERHANDLE"
+
+[[params.socialIcons]]
+  name = "instagram"
+  url = "https://instagram.com/YOURINSTAGRAMHANDLE"
 
 [menu]
   [[menu.main]]
@@ -17,6 +33,22 @@ theme = "PaperMod"
     url = "/"
     weight = 1
   [[menu.main]]
-    name = "About"
-    url = "/about/"
+    name = "Tech & AI"
+    url = "/categories/technology/"
     weight = 2
+  [[menu.main]]
+    name = "Health"
+    url = "/categories/health/"
+    weight = 3
+  [[menu.main]]
+    name = "Finance"
+    url = "/categories/finance/"
+    weight = 4
+  [[menu.main]]
+    name = "Entertainment"
+    url = "/categories/entertainment/"
+    weight = 5
+  [[menu.main]]
+    name = "Football"
+    url = "/categories/football/"
+    weight = 6
