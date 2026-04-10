@@ -1,0 +1,155 @@
+{{- define "main" }}
+
+<!-- Breaking News Ticker -->
+<div class="news-ticker">
+  <div style="display:flex;align-items:center;overflow:hidden;width:100%;">
+    <span class="ticker-label">🔥 TRENDING NOW</span>
+    <div style="overflow:hidden;flex:1;">
+      <div class="ticker-content">
+        {{ range first 10 .Site.RegularPages }}
+          &nbsp;&nbsp;&nbsp;&nbsp;⚡&nbsp;<a href="{{ .RelPermalink }}" style="color:var(--blue-dark);text-decoration:none;font-weight:700;">{{ .Title }}</a>&nbsp;&nbsp;&nbsp;&nbsp;|
+        {{ end }}
+        {{ range first 10 .Site.RegularPages }}
+          &nbsp;&nbsp;&nbsp;&nbsp;⚡&nbsp;<a href="{{ .RelPermalink }}" style="color:var(--blue-dark);text-decoration:none;font-weight:700;">{{ .Title }}</a>&nbsp;&nbsp;&nbsp;&nbsp;|
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main-wrapper">
+
+  <!-- HERO SECTION -->
+  {{ $featured := first 1 .Site.RegularPages }}
+  {{ range $featured }}
+  <section class="hero-section">
+    <div class="hero-post">
+      {{ with .Params.cover }}
+      <img src="{{ .image }}" alt="{{ $.Title }}" class="hero-image"/>
+      {{ end }}
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        {{ with .Params.categories }}
+        <span class="hero-category">{{ index . 0 }}</span>
+        {{ end }}
+        <h2 class="hero-title">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+        <div class="hero-meta">
+          📅 {{ .Date.Format "January 2, 2006" }} &nbsp;·&nbsp; ⏱ {{ .ReadingTime }} min read
+        </div>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- MAIN CONTENT + SIDEBAR -->
+  <div class="content-sidebar-wrap">
+
+    <div>
+      <!-- LATEST NEWS GRID -->
+      <h2 class="section-title">Latest Stories</h2>
+      <div class="post-grid">
+        {{ range first 6 (after 1 .Site.RegularPages) }}
+        <a href="{{ .RelPermalink }}" class="post-card">
+          <div class="post-card-image">
+            {{ with .Params.cover }}
+            <img src="{{ .image }}" alt="{{ $.Title }}"/>
+            {{ else }}
+            <span style="color:rgba(255,255,255,0.3);font-size:48px;">📰</span>
+            {{ end }}
+          </div>
+          <div class="post-card-body">
+            {{ with .Params.categories }}
+            <span class="post-card-category">{{ index . 0 }}</span>
+            {{ end }}
+            <div class="post-card-title">{{ .Title }}</div>
+            <p class="post-card-excerpt">{{ .Summary | truncate 100 }}</p>
+            <div class="post-card-meta">
+              <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+              <span>·</span>
+              <span>{{ .ReadingTime }} min</span>
+            </div>
+          </div>
+        </a>
+        {{ end }}
+      </div>
+
+      <!-- TECH & AI SECTION -->
+      {{ $tech := where .Site.RegularPages "Params.categories" "intersect" (slice "Technology") }}
+      {{ if $tech }}
+      <h2 class="section-title" style="margin-top:32px;">⚡ Tech & AI</h2>
+      <div class="post-grid">
+        {{ range first 3 $tech }}
+        <a href="{{ .RelPermalink }}" class="post-card">
+          <div class="post-card-image">
+            {{ with .Params.cover }}<img src="{{ .image }}" alt="{{ $.Title }}"/>{{ else }}
+            <span style="color:rgba(255,255,255,0.3);font-size:48px;">💻</span>{{ end }}
+          </div>
+          <div class="post-card-body">
+            <span class="post-card-category">Technology</span>
+            <div class="post-card-title">{{ .Title }}</div>
+            <div class="post-card-meta">
+              <span>{{ .Date.Format "Jan 2" }}</span> · <span>{{ .ReadingTime }} min</span>
+            </div>
+          </div>
+        </a>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      <!-- FOOTBALL SECTION -->
+      {{ $football := where .Site.RegularPages "Params.categories" "intersect" (slice "Football") }}
+      {{ if $football }}
+      <h2 class="section-title" style="margin-top:32px;">⚽ Football News</h2>
+      <div class="post-grid">
+        {{ range first 3 $football }}
+        <a href="{{ .RelPermalink }}" class="post-card">
+          <div class="post-card-image">
+            {{ with .Params.cover }}<img src="{{ .image }}" alt="{{ $.Title }}"/>{{ else }}
+            <span style="color:rgba(255,255,255,0.3);font-size:48px;">⚽</span>{{ end }}
+          </div>
+          <div class="post-card-body">
+            <span class="post-card-category">Football</span>
+            <div class="post-card-title">{{ .Title }}</div>
+            <div class="post-card-meta">
+              <span>{{ .Date.Format "Jan 2" }}</span> · <span>{{ .ReadingTime }} min</span>
+            </div>
+          </div>
+        </a>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      <!-- FINANCE SECTION -->
+      {{ $finance := where .Site.RegularPages "Params.categories" "intersect" (slice "Finance") }}
+      {{ if $finance }}
+      <h2 class="section-title" style="margin-top:32px;">💰 Finance & Money</h2>
+      <div class="post-grid">
+        {{ range first 3 $finance }}
+        <a href="{{ .RelPermalink }}" class="post-card">
+          <div class="post-card-image">
+            {{ with .Params.cover }}<img src="{{ .image }}" alt="{{ $.Title }}"/>{{ else }}
+            <span style="color:rgba(255,255,255,0.3);font-size:48px;">💰</span>{{ end }}
+          </div>
+          <div class="post-card-body">
+            <span class="post-card-category">Finance</span>
+            <div class="post-card-title">{{ .Title }}</div>
+            <div class="post-card-meta">
+              <span>{{ .Date.Format "Jan 2" }}</span> · <span>{{ .ReadingTime }} min</span>
+            </div>
+          </div>
+        </a>
+        {{ end }}
+      </div>
+      {{ end }}
+
+    </div>
+
+    <!-- SIDEBAR -->
+    {{ partial "sidebar.html" . }}
+
+  </div>
+</div>
+
+{{- end }}

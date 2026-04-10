@@ -1,0 +1,35 @@
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+<!-- SEO Meta -->
+<meta name="theme-color" content="#0a1628">
+<meta property="og:site_name" content="Riclivo.online">
+<meta property="og:type" content="website">
+
+<!-- Remember commenter details -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const nameInput = document.querySelector('input[name="name"]');
+  const emailInput = document.querySelector('input[name="email"]');
+  
+  if (nameInput && emailInput) {
+    // Load saved values
+    if (localStorage.getItem('commenter_name')) {
+      nameInput.value = localStorage.getItem('commenter_name');
+    }
+    if (localStorage.getItem('commenter_email')) {
+      emailInput.value = localStorage.getItem('commenter_email');
+    }
+    
+    // Save on change
+    nameInput.addEventListener('blur', function() {
+      localStorage.setItem('commenter_name', this.value);
+    });
+    emailInput.addEventListener('blur', function() {
+      localStorage.setItem('commenter_email', this.value);
+    });
+  }
+});
+</script>

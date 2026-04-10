@@ -1,27 +1,33 @@
 baseURL = "https://riclivo.online/"
 languageCode = "en-us"
-title = "Riclivo"
+title = "Riclivo.online"
 theme = "PaperMod"
+paginate = 12
 
 [params]
-  homeInfoParams = {Title = "Welcome to Riclivo 🌍", Content = "Your daily source for Tech, Health, Finance, Entertainment & Football news"}
+  description = "Your daily source for Tech, AI, Health, Finance, Entertainment & Football news"
+  author = "Riclivo Editorial Team"
+  defaultTheme = "light"
+  disableThemeToggle = true
   ShowReadingTime = true
-  ShowShareButtons = true
+  ShowShareButtons = false
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
   ShowToc = true
   ShowCodeCopyButtons = true
-  defaultTheme = "auto"
   DateFormat = "January 2, 2006"
-  description = "Tech, Health, Finance, Entertainment and Football news for the world"
+  
+  [params.homeInfoParams]
+    Title = "Welcome to Riclivo.online 🌍"
+    Content = "Your daily source for Tech, AI, Health, Finance, Entertainment & Football news"
 
-[taxonomies]
-  category = "categories"
-  tag = "tags"
+  [params.cover]
+    linkFullImages = true
+    responsiveImages = true
 
 [[params.socialIcons]]
   name = "twitter"
-  url = "https://twitter.com/@DSpecialman"
+  url = "https://twitter.com/@riclivo"
 
 [[params.socialIcons]]
   name = "instagram"
@@ -33,15 +39,19 @@ theme = "PaperMod"
 
 [[params.socialIcons]]
   name = "pinterest"
-  url = "https://pinterest.com/YOURPINTERESTHANDLE"
+  url = "https://pinterest.com/riclivo"
 
 [[params.socialIcons]]
   name = "reddit"
-  url = "https://reddit.com/u/@riclivo"
+  url = "https://reddit.com/u/riclivo"
 
 [[params.socialIcons]]
   name = "tiktok"
-  url = "https://tiktok.com/@YOURTIKTOKHANDLE"
+  url = "https://tiktok.com/@riclivo"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
 
 [menu]
   [[menu.main]]
@@ -68,3 +78,7 @@ theme = "PaperMod"
     name = "Football"
     url = "/categories/football/"
     weight = 6
+  [[menu.main]]
+    name = "News"
+    url = "/categories/news/"
+    weight = 7
