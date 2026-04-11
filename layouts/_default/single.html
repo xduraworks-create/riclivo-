@@ -7,91 +7,57 @@
     <article class="post-article">
 
       <div class="post-header">
-        <!-- Category badge -->
         {{ with .Params.categories }}
         <span class="post-category-badge">{{ index . 0 }}</span>
         {{ end }}
-
-        <!-- Title -->
         <h1 class="post-title">{{ .Title }}</h1>
-
-        <!-- Meta bar -->
         <div class="post-meta-bar">
           <span>📅 {{ .Date.Format "January 2, 2006" }}</span>
           <span>⏱ {{ .ReadingTime }} min read</span>
           {{ with .Params.author }}<span>✍️ {{ . }}</span>{{ end }}
           {{ with .Params.tags }}
-          <span>🏷
-            {{ range . }}<a href="/tags/{{ . | urlize }}" style="color:var(--blue-mid);text-decoration:none;margin-right:6px;">#{{ . }}</a>{{ end }}
-          </span>
+          <span>🏷 {{ range . }}<a href="/tags/{{ . | urlize }}" style="color:var(--blue-mid);text-decoration:none;margin-right:6px;">#{{ . }}</a>{{ end }}</span>
           {{ end }}
         </div>
       </div>
 
-      <!-- Featured image -->
       {{ with .Params.cover }}
       <img src="{{ .image }}" alt="{{ $.Title }}" class="post-featured-image"/>
       {{ end }}
 
-      <!-- Post body -->
       <div class="post-body">
         {{ .Content }}
 
-        <!-- In-content Comentryx ad (appears after content) -->
+        <!-- In-content Comentryx Ad -->
         <a href="https://comentrix.riclivo.com" target="_blank" class="in-content-ad">
           <img src="/images/comentryx-logo.png" alt="Comentryx" class="in-content-ad-logo"
                onerror="this.style.display='none'"/>
           <div class="in-content-ad-text">
             <h4>Are those engagement numbers real?</h4>
-            <p>Comentryx analyzes comment sections to detect fake engagement, bots & sentiment patterns.</p>
+            <p>Comentryx analyzes comment sections to detect fake engagement, bots and sentiment patterns instantly.</p>
           </div>
-          <span class="in-content-ad-btn">Try Free →</span>
+          <span class="in-content-ad-btn">Try Free</span>
         </a>
       </div>
 
-      <!-- Share buttons -->
+      <!-- Share Buttons -->
       <div class="post-share">
         <div class="share-title">Share This Story</div>
         <div class="share-buttons">
           <a href="https://twitter.com/intent/tweet?text={{ .Title | urlize }}&url={{ .Permalink }}" 
-             target="_blank" class="share-btn share-twitter">𝕏 Share</a>
+             target="_blank" class="share-btn share-twitter">X Share</a>
           <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" 
              target="_blank" class="share-btn share-facebook">Facebook</a>
           <a href="https://wa.me/?text={{ .Title | urlize }}%20{{ .Permalink }}" 
-             target="_blank" class="share-btn share-whatsapp">💬 WhatsApp</a>
+             target="_blank" class="share-btn share-whatsapp">WhatsApp</a>
         </div>
       </div>
 
     </article>
 
-    <!-- COMMENTS SECTION -->
+    <!-- DISQUS PUBLIC COMMENTS -->
     <div class="comments-section">
-      <h3 class="comments-title">💬 Join the Conversation</h3>
-
-      <!-- Comment form -->
-      <div class="comment-form">
-        <div class="comment-form-title">Leave a Comment</div>
-        <form action="https://formspree.io/f/YOUR_COMMENT_FORM_ID" method="POST">
-          <input type="hidden" name="post" value="{{ .Title }}"/>
-          <input type="hidden" name="post_url" value="{{ .Permalink }}"/>
-          <div class="comment-form-row">
-            <input type="text" name="name" placeholder="Your Name *" required 
-                   autocomplete="name"
-                   style="margin-bottom:0"/>
-            <input type="email" name="email" placeholder="Your Email *" required 
-                   autocomplete="email"
-                   style="margin-bottom:0"/>
-          </div>
-          <textarea name="comment" placeholder="Write your comment here..." required
-                    style="margin-top:12px"></textarea>
-          <button type="submit" class="comment-submit">Post Comment →</button>
-          <p style="font-size:11px;color:var(--text-mid);margin:8px 0 0;">
-            Your email won't be published. Your browser will remember your details for next time.
-          </p>
-        </form>
-      </div>
-
-      <!-- Disqus comments (optional - add your shortname) -->
+      <h3 class="comments-title">Join the Conversation</h3>
       <div id="disqus_thread"></div>
       <script>
         var disqus_config = function () {
@@ -100,13 +66,31 @@
         };
         (function() {
           var d = document, s = d.createElement('script');
-          s.src = 'https://YOUR-DISQUS-SHORTNAME.disqus.com/embed.js';
+          s.src = 'https://riclivo-online.disqus.com/embed.js';
           s.setAttribute('data-timestamp', +new Date());
           (d.head || d.body).appendChild(s);
         })();
       </script>
-
     </div>
+
+    <!-- GOOGLE FORM PRIVATE COMMENTS -->
+    <div class="comments-section" style="margin-top:24px;">
+      <h3 class="comments-title">Share Your Thoughts Privately</h3>
+      <p style="font-size:13px;color:var(--text-mid);margin:0 0 16px;">
+        Your response goes directly to our team. Not published publicly.
+      </p>
+      <iframe 
+        src="https://docs.google.com/forms/d/e/1FAIpQLSdHtiZD3NbOe9jG5pqCMRPeLXUSbG93UWtbrKO4FH4iz-WvTQ/viewform?embedded=true" 
+        width="100%" 
+        height="420" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0"
+        style="border-radius:8px;">
+        Loading
+      </iframe>
+    </div>
+
   </div>
 
   <!-- SIDEBAR -->

@@ -27,11 +27,11 @@ paginate = 12
 
 [[params.socialIcons]]
   name = "twitter"
-  url = "https://twitter.com/@riclivo"
+  url = "https://twitter.com/riclivo"
 
 [[params.socialIcons]]
   name = "instagram"
-  url = "https://instagram.com/@riclivo"
+  url = "https://instagram.com/riclivo"
 
 [[params.socialIcons]]
   name = "youtube"

@@ -5,12 +5,12 @@
     <p class="widget-title">Sponsored</p>
     <a href="https://comentrix.riclivo.com" target="_blank" class="comentryx-ad">
       <img src="/images/comentryx-logo.png" alt="Comentryx" class="comentryx-logo"
-           onerror="this.style.fontSize='48px';this.style.display='block';this.innerHTML='🔍'"/>
+           onerror="this.style.fontSize='48px';this.style.display='block';this.innerHTML='C'"/>
       <div class="comentryx-headline">Are Those Comments REAL?</div>
       <p class="comentryx-text">
         Analyze any post's comment section instantly. Detect fake engagement, bots, and sentiment patterns before you share or promote.
       </p>
-      <span class="comentryx-btn">Try Comentryx Free →</span>
+      <span class="comentryx-btn">Try Comentryx Free</span>
     </a>
   </div>
 
@@ -21,7 +21,7 @@
       <div class="advertise-icon">📢</div>
       <div class="advertise-headline">Place Your Advert Here</div>
       <p class="advertise-text">
-        Reach thousands of daily readers across Tech, Health, Finance, Entertainment & Football niches worldwide.
+        Reach thousands of daily readers across Tech, Health, Finance, Entertainment and Football niches worldwide.
       </p>
       <div class="advertise-stats">
         <div class="stat-item">
@@ -39,42 +39,42 @@
       </div>
       <div class="advertise-btns">
         <a href="mailto:n.c.denis@riclivo.com?subject=Advertising%20on%20Riclivo.online" class="btn-email">
-          📧 Email Us
+          Email Us
         </a>
-        <a href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=Hi%2C%20I%27d%20like%20to%20advertise%20on%20Riclivo.online" 
+        <a href="https://wa.me/2349034100339?text=Hi%2C%20I%27d%20like%20to%20advertise%20on%20Riclivo.online" 
            target="_blank" class="btn-whatsapp">
-          💬 WhatsApp Us
+          WhatsApp Us
         </a>
       </div>
     </div>
   </div>
 
-  <!-- EMAIL SIGNUP -->
+  <!-- NEWSLETTER SIGNUP - Google Form -->
   <div class="sidebar-widget">
     <p class="widget-title">Newsletter</p>
-    <div class="email-widget">
-      <div class="email-widget-title">Stay Ahead of the News 🔥</div>
+    <div style="padding:16px 16px 8px;">
+      <div class="email-widget-title">Stay Ahead of the News</div>
       <p class="email-widget-text">
-        Get the top trending stories in Tech, Health, Finance & Football delivered to your inbox daily. No spam, ever.
+        Get top trending stories in Tech, Health, Finance and Football delivered to your inbox. No spam, ever.
       </p>
-      <form class="email-form" 
-            action="https://formspree.io/f/YOUR_FORM_ID" 
-            method="POST">
-        <input type="text" name="name" placeholder="Your Name" required 
-               autocomplete="name"/>
-        <input type="email" name="email" placeholder="Your Email Address" required 
-               autocomplete="email"/>
-        <input type="hidden" name="_subject" value="New Riclivo Newsletter Signup"/>
-        <button type="submit">Subscribe Free →</button>
-      </form>
     </div>
+    <iframe 
+      src="https://docs.google.com/forms/d/e/1FAIpQLSdcf7Jkn5GMyyyLx_6i8KGMOYuh42gXEUlRQFSuCtxjXVHLrw/viewform?embedded=true" 
+      width="100%" 
+      height="420" 
+      frameborder="0" 
+      marginheight="0" 
+      marginwidth="0"
+      style="display:block;">
+      Loading
+    </iframe>
   </div>
 
   <!-- TRENDING TOPICS -->
   <div class="sidebar-widget">
-    <p class="widget-title">Trending Topics</p>
+    <p class="widget-title">Trending Now</p>
     <div style="padding: 16px;">
-      {{ $pages := first 5 (where .Site.RegularPages "Type" "posts") }}
+      {{ $pages := first 5 .Site.RegularPages }}
       {{ range $pages }}
       <a href="{{ .RelPermalink }}" style="display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;text-decoration:none;">
         <span style="background:var(--blue-dark);color:var(--gold);font-size:11px;font-weight:800;padding:4px 8px;border-radius:4px;flex-shrink:0;">{{ .Date.Format "Jan 2" }}</span>

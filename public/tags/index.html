@@ -66,52 +66,76 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </head>
 <body class="list" id="top">
-    <header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Riclivo.online (Alt + H)">Riclivo.online</a>
-            <div class="logo-switches">
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="http://localhost:1313/" title="Home">
-                    <span>Home</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://localhost:1313/categories/technology/" title="Tech &amp; AI">
-                    <span>Tech &amp; AI</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://localhost:1313/categories/health/" title="Health">
-                    <span>Health</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://localhost:1313/categories/finance/" title="Finance">
-                    <span>Finance</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://localhost:1313/categories/entertainment/" title="Entertainment">
-                    <span>Entertainment</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://localhost:1313/categories/football/" title="Football">
-                    <span>Football</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://localhost:1313/categories/news/" title="News">
-                    <span>News</span>
-                </a>
-            </li>
-        </ul>
+    <header class="header" id="site-header">
+  <div class="header-inner">
+
+    
+    <a href="/" class="site-logo">
+      <img src="/images/riclivo-logo.png" alt="Riclivo.online"
+           style="height:45px;width:auto;"
+           onerror="this.style.display='none';document.getElementById('text-logo').style.display='flex'"/>
+      
+      <div id="text-logo" style="display:none;align-items:center;gap:2px;">
+        <span style="font-size:22px;font-weight:900;color:white;letter-spacing:-1px;">Riclivo</span>
+        <span style="font-size:14px;font-weight:700;background:linear-gradient(90deg,#00c8ff,#d4a017);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">.online</span>
+      </div>
+    </a>
+
+    
+    <nav class="main-nav" id="main-nav">
+      <a href="/">Home</a>
+      <a href="/categories/technology/">Tech & AI</a>
+      <a href="/categories/health/">Health</a>
+      <a href="/categories/finance/">Finance</a>
+      <a href="/categories/entertainment/">Entertainment</a>
+      <a href="/categories/football/">Football</a>
+      <a href="/categories/news/">News</a>
     </nav>
+
+    
+    <div style="display:flex;align-items:center;gap:12px;">
+      <a href="/search/" style="color:rgba(255,255,255,0.7);font-size:18px;text-decoration:none;" title="Search">🔍</a>
+      <button onclick="document.getElementById('main-nav').classList.toggle('open')"
+              style="display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer;"
+              id="nav-toggle">☰</button>
+    </div>
+
+  </div>
+
+  
+  <div class="social-bar">
+    <span class="social-bar-label">Follow Us:</span>
+    <a href="https://twitter.com/riclivo" target="_blank">𝕏 Twitter</a>
+    <a href="https://instagram.com/riclivo" target="_blank">📸 Instagram</a>
+    <a href="https://youtube.com/@RiclivoTv" target="_blank">▶️ YouTube</a>
+    <a href="https://tiktok.com/@riclivo" target="_blank">🎵 TikTok</a>
+    <a href="https://pinterest.com/riclivo" target="_blank">📌 Pinterest</a>
+    <a href="https://reddit.com/u/riclivo" target="_blank">🔴 Reddit</a>
+  </div>
+
 </header>
+
+<style>
+ 
+@media (max-width: 900px) {
+  #nav-toggle { display:block !important; }
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: var(--blue-dark);
+    flex-direction: column;
+    padding: 16px;
+    border-bottom: 3px solid var(--gold);
+    z-index: 999;
+  }
+  .main-nav.open { display: flex !important; }
+  .main-nav a { padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .social-bar { display: none; }
+}
+</style>
 <main class="main">
 <header class="page-header">
     <h1>Tags</h1>
@@ -120,112 +144,77 @@ document.addEventListener('DOMContentLoaded', function() {
 <ul class="terms-tags">
 </ul>
     </main>
+    <footer class="site-footer">
+  <div class="footer-top">
+
     
-<footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/">Riclivo.online</a></span> · 
+    <div class="footer-brand">
+      <img src="/images/riclivo-logo.png" alt="Riclivo.online"
+           onerror="this.style.display='none'"/>
+      <p class="footer-desc">
+        Your daily source for trending Tech & AI, Health, Finance, Entertainment and Football news. A RicLivo Technologies Media platform serving a global audience 24/7.
+      </p>
+      <div class="footer-social">
+        <a href="https://twitter.com/riclivo" target="_blank" title="Twitter/X">𝕏</a>
+        <a href="https://instagram.com/riclivo" target="_blank" title="Instagram">📸</a>
+        <a href="https://youtube.com/@RiclivoTv" target="_blank" title="YouTube">▶</a>
+        <a href="https://tiktok.com/@riclivo" target="_blank" title="TikTok">🎵</a>
+        <a href="https://pinterest.com/riclivo" target="_blank" title="Pinterest">📌</a>
+        <a href="https://reddit.com/u/riclivo" target="_blank" title="Reddit">🔴</a>
+      </div>
+    </div>
 
+    
+    <div class="footer-col">
+      <div class="footer-col-title">Categories</div>
+      <a href="/categories/technology/">⚡ Tech & AI</a>
+      <a href="/categories/health/">💊 Health & Wellness</a>
+      <a href="/categories/finance/">💰 Finance & Money</a>
+      <a href="/categories/entertainment/">🎬 Entertainment</a>
+      <a href="/categories/football/">⚽ Football</a>
+      <a href="/categories/news/">📰 News</a>
+    </div>
+
+    
+    <div class="footer-col">
+      <div class="footer-col-title">Company</div>
+      <a href="/about/">About Riclivo</a>
+      <a href="/advertise/">Advertise With Us</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="/contact/">Contact Us</a>
+      <a href="https://riclivo.com" target="_blank">RicLivo Technologies</a>
+      <a href="https://comentrix.riclivo.com" target="_blank">Comentryx App</a>
+    </div>
+
+    
+    <div class="footer-col">
+      <div class="footer-col-title">Contact</div>
+      <a href="mailto:n.c.denis@riclivo.com">📧 n.c.denis@riclivo.com</a>
+      <a href="https://wa.me/2349034100339?text=Hi%2C%20I%27d%20like%20to%20advertise%20on%20Riclivo.online" target="_blank">💬 WhatsApp Us</a>
+      <a href="https://comentrix.riclivo.com" target="_blank">🔍 Try Comentryx</a>
+      <div style="margin-top:12px;">
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Newsletter</div>
+        <a href="#newsletter" style="background:var(--gold);color:var(--blue-dark);padding:8px 14px;border-radius:4px;font-weight:700;font-size:12px;">Subscribe Free →</a>
+      </div>
+    </div>
+
+  </div>
+
+  
+  <div class="footer-bottom">
+    <span>© 2026 Riclivo.online — All rights reserved.</span>
     <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+      Powered by 
+      <a href="https://riclivo.com" target="_blank">RicLivo Technologies</a>
     </span>
+    <span>
+      <a href="/privacy/">Privacy</a> &nbsp;·&nbsp;
+      <a href="/contact/">Contact</a> &nbsp;·&nbsp;
+      <a href="/advertise/">Advertise</a>
+    </span>
+  </div>
+
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-<style>
-.social-bar {
-  background: #0d1f3c;
-  border-bottom: 1px solid rgba(212,160,23,0.3);
-  padding: 6px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 12px;
-  max-width: 100%;
-}
-.social-bar a {
-  color: rgba(255,255,255,0.6);
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 4px;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-.social-bar a:hover { color: #d4a017; background: rgba(212,160,23,0.1); }
-.social-bar-label {
-  color: rgba(255,255,255,0.3);
-  font-size: 11px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-right: auto;
-}
-</style>
-
-<div class="social-bar">
-  <span class="social-bar-label">Follow Us:</span>
-  <a href="https://twitter.com/YOURTWITTERHANDLE" target="_blank">𝕏 Twitter</a>
-  <a href="https://instagram.com/YOURINSTAGRAMHANDLE" target="_blank">📸 Instagram</a>
-  <a href="https://youtube.com/@RiclivoTv" target="_blank">▶️ YouTube</a>
-  <a href="https://tiktok.com/@YOURTIKTOKHANDLE" target="_blank">🎵 TikTok</a>
-  <a href="https://pinterest.com/riclivo" target="_blank">📌 Pinterest</a>
-  <a href="https://reddit.com/u/riclivo" target="_blank">🔴 Reddit</a>
-</div>
-
-
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
 </body>
 
 </html>
