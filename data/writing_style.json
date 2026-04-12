@@ -1,0 +1,182 @@
+{
+  "general_rules": {
+    "tone": "Write like a smart, opinionated human journalist — not a robot. Be direct, confident and interesting.",
+    "paragraph_length": "Maximum 3 sentences per paragraph. Short paragraphs keep readers scrolling.",
+    "sentence_style": "Mix short punchy sentences with longer ones. Vary your rhythm.",
+    "opening_hook": "ALWAYS start with a surprising fact, bold statement, or question that grabs attention. Never start with 'In recent years' or 'In today's world'.",
+    "personal_touches": "Use 'you', 'we', 'here's the thing', 'let's be honest', 'here's what nobody is saying'",
+    "ending": "Always end with either a question to spark comments OR a bold prediction.",
+    "word_count": {
+      "regular_post": "650-850 words",
+      "vs_post": "950-1100 words",
+      "weekly_special": "1200-1500 words",
+      "peak_post": "600-750 words",
+      "app_of_day": "280-350 words"
+    }
+  },
+  "banned_phrases": [
+    "In conclusion",
+    "It is worth noting",
+    "Delve into",
+    "It's important to note",
+    "In today's digital age",
+    "In today's fast-paced world",
+    "Furthermore",
+    "Moreover",
+    "As an AI",
+    "As a language model",
+    "I cannot",
+    "Certainly",
+    "Absolutely",
+    "Of course",
+    "Needless to say",
+    "It goes without saying",
+    "At the end of the day",
+    "In terms of",
+    "With that being said",
+    "That being said",
+    "Having said that",
+    "Without further ado",
+    "In this article we will",
+    "This article explores",
+    "We will discuss",
+    "Let us explore"
+  ],
+  "niche_tones": {
+    "Technology": "Write like The Verge — sharp, opinionated, slightly skeptical of hype but excited by genuine innovation. Use specific product names and specs.",
+    "AI": "Write like someone who uses AI daily and has strong opinions. Explain technical things simply. Be honest about limitations. Reference real user reactions.",
+    "Health": "Write like a knowledgeable friend, not a medical brochure. Use real language. Acknowledge uncertainty where it exists. Cite studies simply.",
+    "Finance": "Write like someone who actually invests. Be specific with numbers. Explain implications for regular people. Never be preachy about money.",
+    "Entertainment": "Write like a passionate fan who also has taste. Have opinions. Name names. Reference cultural context. Be entertaining while reporting entertainment.",
+    "Football": "Write with genuine passion. Use football slang naturally. Have strong takes. Reference specific matches, stats, and player moments. Fans can smell inauthenticity.",
+    "Sports": "Write with energy and respect for athletes. Explain sports context for casual fans. Use stats meaningfully not just decoratively.",
+    "News": "Write like Reuters meets New York Post — accurate and factual but readable and engaging. Never dry. Always explain why this matters to the reader."
+  },
+  "vs_format": {
+    "structure": "5 paragraphs exactly",
+    "paragraph_1": "INTRO: Set the scene. Why are these two being compared? What is at stake? Make the reader care about this matchup. End with a teaser of what you found.",
+    "paragraph_2": "ABOUT A: Full honest profile of option A. What they do best, how users feel, specific strengths backed by real quotes or reviews.",
+    "paragraph_3": "ABOUT B: Full honest profile of option B. Same treatment as A — honest, specific, referenced.",
+    "paragraph_4": "THE COMPARISON: Real reactions from app stores, Reddit, Twitter. Quote actual users. Compare specific features head to head. Be honest about weaknesses of both.",
+    "paragraph_5": "CONCLUSION: Who wins and FOR WHO specifically. Not a universal verdict — acknowledge that different people need different things. End with a recommendation.",
+    "rules": [
+      "Never list pros and cons separately",
+      "Weave strengths and weaknesses naturally into the narrative",
+      "Use real quotes from users — not made up",
+      "Never be defamatory — stick to verifiable facts and user opinions",
+      "The conclusion must be nuanced — rarely is one option perfect for everyone"
+    ]
+  },
+  "social_captions": {
+    "twitter": {
+      "format": "Hook (max 100 chars) + 1 key fact + link",
+      "style": "Punchy, opinionated, makes people want to click. Use numbers when possible.",
+      "hashtags": 2,
+      "example": "Real Madrid just did something nobody expected. Here's what it means for the title race. [LINK] #PremierLeague #Football"
+    },
+    "instagram": {
+      "format": "Emotional hook + 3-4 sentences of context + call to action + hashtags",
+      "style": "More personal and emotional than Twitter. Speak directly to the reader.",
+      "hashtags": 8,
+      "cta": "Full story at link in bio 👆",
+      "example": "This AI app just changed how millions of people work — and most haven't heard of it yet. We broke it down so you don't have to. Link in bio 👆 #AI #TechNews #Riclivo"
+    },
+    "pinterest": {
+      "format": "Descriptive keyword-rich caption for search discovery",
+      "style": "Informative, searchable, includes relevant keywords naturally",
+      "hashtags": 5
+    },
+    "reddit": {
+      "format": "Post title as a question or discussion prompt. First comment adds context and link.",
+      "style": "Reddit hates obvious self-promotion. Frame as discussion, not advertisement.",
+      "subreddits": {
+        "Technology": ["r/technology", "r/gadgets", "r/tech"],
+        "AI": ["r/artificial", "r/MachineLearning", "r/ChatGPT"],
+        "Health": ["r/health", "r/fitness", "r/HealthyFood"],
+        "Finance": ["r/personalfinance", "r/investing", "r/CryptoCurrency"],
+        "Football": ["r/soccer", "r/PremierLeague", "r/football"],
+        "Sports": ["r/sports", "r/nba", "r/formula1"],
+        "Entertainment": ["r/entertainment", "r/movies", "r/Music"],
+        "News": ["r/worldnews", "r/news"]
+      }
+    }
+  },
+  "weekly_specials": {
+    "friday_ai_app": {
+      "title_format": "AI App of the Week: The 3 Apps That Dominated Headlines This Week",
+      "structure": "Intro paragraph → App 1 (what/why/impact/rating) → App 2 → App 3 → Conclusion",
+      "per_app": "What is it, why trending, where launched/updated, how it impacts users, honest rating out of 10, tag their social handle",
+      "tone": "Excited but honest reviewer who has actually used or researched the apps"
+    },
+    "friday_ladies_corner": {
+      "title_format": "Ladies Corner: The 3 Women's Health Topics Everyone Is Talking About This Week",
+      "structure": "Warm intro → Topic 1 (extensive coverage) → Topic 2 → Topic 3 → Empowering conclusion",
+      "tone": "Like a knowledgeable older sister — warm, honest, empowering, not preachy"
+    },
+    "monday_money_move": {
+      "title_format": "Money Move Monday: [Specific Actionable Tip]",
+      "structure": "Bold opening claim → The situation → The specific action → Why it works → How to start today",
+      "tone": "Practical financial friend, not a salesman. Real advice real people can use."
+    },
+    "tuesday_messi_ronaldo": {
+      "title_format": "Messi & Ronaldo Watch: Everything That Happened This Week",
+      "structure": "Messi update → Ronaldo update → Comparison/context if relevant → Fan reactions",
+      "tone": "Passionate football fan who respects both equally"
+    },
+    "thursday_tomorrow": {
+      "title_format": "Tomorrow's News Today: What to Watch This Weekend",
+      "structure": "Football fixtures preview → Weekend tech/entertainment releases → Health tip for the weekend → Finance market outlook",
+      "tone": "Helpful guide, like a smart friend briefing you before the weekend"
+    },
+    "friday_week_in_numbers": {
+      "title_format": "This Week in Numbers: The Stats That Defined the Week",
+      "structure": "7 key numbers/stats from across all niches with context explaining why each number matters",
+      "tone": "Sharp data journalist who makes numbers interesting"
+    },
+    "saturday_weekend_kickoff": {
+      "title_format": "Weekend Kickoff: Complete Guide to Today's Football Fixtures",
+      "structure": "All matches with times → Key players to watch → Predictions → Where to watch",
+      "tone": "Knowledgeable football pundit who gives genuine predictions"
+    },
+    "saturday_nigerian_spotlight": {
+      "title_format": "Nigerian Spotlight: This Week's Biggest Stories for Nigeria",
+      "structure": "Top 3 Nigeria-relevant stories → Local market/Naira update → Super Eagles update if applicable",
+      "tone": "Proud Nigerian voice that speaks to the local experience with global context"
+    },
+    "sunday_read": {
+      "title_format": "The Sunday Read: [Most Interesting Story of the Week]",
+      "structure": "Long-form deep dive into the week's most interesting story. Background → What happened → Why it matters → Different perspectives → What comes next",
+      "tone": "Thoughtful longform journalism — the kind of piece people share and remember"
+    },
+    "sunday_transfer_mill": {
+      "title_format": "Transfer Rumour Mill: Every Deal and Rumour You Need to Know",
+      "structure": "Confirmed deals → Hot rumours (with source credibility rating) → Ones to watch → Ones that fell through",
+      "tone": "Reliable football journalist who separates fact from fiction"
+    },
+    "sunday_wellness": {
+      "title_format": "Sunday Wellness: [One Relaxing Health or Mindfulness Topic]",
+      "structure": "Why today's topic matters → The science simply explained → 3 practical steps → A closing thought for the week",
+      "tone": "Calm, restorative, like a wellness coach on a Sunday morning"
+    },
+    "sunday_week_ahead": {
+      "title_format": "The Week Ahead: What to Expect Across Tech, Football, Finance and More",
+      "structure": "7 things to watch next week — one per niche — with context on why each matters",
+      "tone": "Knowledgeable guide helping readers stay ahead of the news cycle"
+    },
+    "thursday_crypto": {
+      "title_format": "Crypto Corner: Bitcoin, Ethereum and the Biggest Moves This Week",
+      "structure": "Bitcoin price and sentiment → Ethereum update → Top altcoin story → Expert prediction → What to watch",
+      "tone": "Informed crypto enthusiast who understands volatility and doesn't give financial advice"
+    },
+    "tuesday_tech_tuesday": {
+      "title_format": "Tech Tuesday: The Biggest Technology Story This Week",
+      "structure": "The story → Background context → What companies/people are saying → Impact on users → What happens next",
+      "tone": "Tech journalist with strong opinions and clear explanations"
+    },
+    "app_of_day": {
+      "title_format": "App of the Day: [App Name] — [One Sentence Description]",
+      "structure": "What it does (2 sentences) → Why it's trending today → Who it's for → Download/link → Rating",
+      "tone": "Quick, punchy app review. Like a friend texting you about a cool app."
+    }
+  }
+}

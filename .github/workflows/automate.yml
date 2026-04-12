@@ -1,0 +1,93 @@
+name: Riclivo Auto-Post
+
+on:
+  schedule:
+    # Run every hour at minute 0 (EST = UTC-5)
+    # 7AM EST = 12:00 UTC
+    # 9AM EST = 14:00 UTC
+    # 11AM EST = 16:00 UTC
+    # 1PM EST = 18:00 UTC (PEAK)
+    # 3PM EST = 20:00 UTC
+    # 5PM EST = 22:00 UTC
+    # 6PM EST = 23:00 UTC
+    # 7PM EST = 00:00 UTC next day (PEAK)
+    # 8PM EST = 01:00 UTC
+    # 9PM EST = 02:00 UTC
+    - cron: '0 6,8,9,11,12,14,16,17,18,19,20,21,22,23 * * *'
+    - cron: '0 0,1,2,3,4 * * *'
+  
+  # Allow manual trigger for testing
+  workflow_dispatch:
+    inputs:
+      post_type:
+        description: 'Post type to create (regular/peak/special)'
+        required: false
+        default: 'regular'
+      special_type:
+        description: 'Special post type if applicable'
+        required: false
+
+jobs:
+  auto-post:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install requests openai pytz Pillow
+      
+      - name: Set up Git
+        run: |
+          git config --global user.email "n.c.denis@riclivo.com"
+          git config --global user.name "Riclivo Bot"
+      
+      - name: Create data directory
+        run: |
+          mkdir -p data
+          mkdir -p content/posts
+          mkdir -p static/images/posts
+          
+          # Initialize state files if they don't exist
+          if [ ! -f data/posted_topics.json ]; then
+            echo '{}' > data/posted_topics.json
+          fi
+          
+          if [ ! -f data/rotation.json ]; then
+            echo '{"current_pair_index": 0, "daily_count": 0, "last_date": ""}' > data/rotation.json
+          fi
+      
+      - name: Run automation
+        env:
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+          GOOGLE_SEARCH_CONSOLE_TOKEN: ${{ secrets.GOOGLE_SEARCH_CONSOLE_TOKEN }}
+        run: |
+          python automate.py
+      
+      - name: Pull latest changes before push
+        run: |
+          git pull --rebase origin main || true
+      
+      - name: Push if changes exist
+        run: |
+          if git diff --staged --quiet && git diff --quiet; then
+            echo "No changes to push"
+          else
+            git push origin main
+          fi

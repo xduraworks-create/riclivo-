@@ -1,0 +1,92 @@
+{
+  "niches": [
+    {
+      "name": "Technology",
+      "slug": "technology",
+      "emoji": "💻",
+      "keywords": ["AI", "tech", "software", "startup", "Apple", "Google", "Microsoft", "Meta", "Tesla", "smartphone", "cybersecurity", "cloud", "gadgets"],
+      "countries": ["US", "GB", "CA", "NG", "ES"],
+      "min_trend_score": 50,
+      "tone": "informative and exciting, like a tech journalist who loves innovation"
+    },
+    {
+      "name": "AI",
+      "slug": "ai",
+      "emoji": "🤖",
+      "keywords": ["artificial intelligence", "ChatGPT", "OpenAI", "Claude", "Gemini", "machine learning", "deep learning", "AI app", "large language model", "automation"],
+      "countries": ["US", "GB", "CA", "NG", "ES"],
+      "min_trend_score": 50,
+      "tone": "fascinated but balanced, explain complex AI concepts simply for everyday readers"
+    },
+    {
+      "name": "Health",
+      "slug": "health",
+      "emoji": "💊",
+      "keywords": ["health", "wellness", "fitness", "mental health", "diet", "nutrition", "medicine", "hospital", "workout", "disease", "treatment", "women health"],
+      "countries": ["US", "GB", "CA", "NG"],
+      "min_trend_score": 50,
+      "tone": "caring, empathetic and informative like a knowledgeable friend who happens to be a doctor"
+    },
+    {
+      "name": "Finance",
+      "slug": "finance",
+      "emoji": "💰",
+      "keywords": ["stock market", "crypto", "bitcoin", "economy", "investment", "money", "banking", "inflation", "naira", "dollar", "NYSE", "financial", "wealth"],
+      "countries": ["US", "GB", "CA", "NG"],
+      "min_trend_score": 50,
+      "tone": "authoritative but accessible, like a smart friend who works on Wall Street"
+    },
+    {
+      "name": "Entertainment",
+      "slug": "entertainment",
+      "emoji": "🎬",
+      "keywords": ["movies", "music", "celebrity", "Netflix", "Grammy", "Oscar", "Hollywood", "Nollywood", "TV show", "album", "concert", "viral", "pop culture"],
+      "countries": ["US", "GB", "CA", "NG", "ES"],
+      "min_trend_score": 50,
+      "tone": "fun, gossipy but respectful, like a friend who knows everything about pop culture"
+    },
+    {
+      "name": "Football",
+      "slug": "football",
+      "emoji": "⚽",
+      "keywords": ["Premier League", "La Liga", "Serie A", "Bundesliga", "Ligue 1", "Super Lig", "Champions League", "FIFA", "World Cup", "Messi", "Ronaldo", "transfer", "EPL"],
+      "countries": ["GB", "ES", "IT", "DE", "FR", "TR", "NG"],
+      "min_trend_score": 45,
+      "tone": "passionate and energetic like a football pundit who lives and breathes the game"
+    },
+    {
+      "name": "Sports",
+      "slug": "sports",
+      "emoji": "🏆",
+      "keywords": ["NBA", "NFL", "tennis", "boxing", "Formula 1", "F1", "Olympics", "athletics", "UFC", "golf", "cricket", "rugby", "sport"],
+      "countries": ["US", "GB", "CA", "NG", "ES"],
+      "min_trend_score": 50,
+      "tone": "excited and knowledgeable like a multi-sport enthusiast who watches everything"
+    },
+    {
+      "name": "News",
+      "slug": "news",
+      "emoji": "📰",
+      "keywords": ["breaking news", "politics", "world news", "election", "government", "international", "crisis", "economy", "climate", "war", "policy"],
+      "countries": ["US", "GB", "CA", "NG", "ES"],
+      "min_trend_score": 60,
+      "tone": "neutral, factual and journalistic but engaging, never boring"
+    }
+  ],
+  "rotation_pairs": [
+    ["Technology", "Health"],
+    ["Finance", "Entertainment"],
+    ["Football", "Sports"],
+    ["News", "AI"],
+    ["Technology", "Finance"],
+    ["Health", "Football"],
+    ["Entertainment", "Sports"],
+    ["AI", "News"]
+  ],
+  "peak_hour_threshold": 70,
+  "repeat_cooldown_days": 7,
+  "max_daily_posts": 17,
+  "site_url": "https://riclivo.online",
+  "github_repo": "xduraworks-create/riclivo-",
+  "author": "Riclivo Editorial Team"
+}
