@@ -1,44 +1,220 @@
-<div class="site-header" id="site-header">
-  <div class="header-inner">
+{{- /* RICLIVO HEADER */ -}}
+
+<!-- TICKER -->
+<div class="rl-ticker">
+  <div class="ticker-badge">
+    <div class="ticker-dot"></div>
+    TRENDING
+  </div>
+  <div class="ticker-track">
+    <div class="ticker-inner" id="tickerInner">
+      {{ range first 12 .Site.RegularPages }}
+      <a href="{{ .RelPermalink }}" class="ticker-item">{{ .Title }}</a>
+      {{ end }}
+      {{ range first 12 .Site.RegularPages }}
+      <a href="{{ .RelPermalink }}" class="ticker-item">{{ .Title }}</a>
+      {{ end }}
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="rl-header" id="rl-header">
+
+  <!-- ROW 1: Social icons + date -->
+  <div style="background:#080f1e;border-bottom:1px solid rgba(232,160,32,.15);padding:0 24px;">
+    <div style="max-width:1320px;margin:0 auto;height:36px;display:flex;align-items:center;justify-content:space-between;">
+      <div class="social-icons-row">
+        <span style="font-size:10px;color:rgba(255,255,255,.35);letter-spacing:2px;text-transform:uppercase;margin-right:6px;">Follow</span>
+        <a href="https://twitter.com/riclivo" target="_blank" class="social-icon-btn si-x" title="Twitter/X">𝕏</a>
+        <a href="https://instagram.com/riclivo" target="_blank" class="social-icon-btn si-ig" title="Instagram">📸</a>
+        <a href="https://youtube.com/@RiclivoTv" target="_blank" class="social-icon-btn si-yt" title="YouTube">▶</a>
+        <a href="https://tiktok.com/@riclivo" target="_blank" class="social-icon-btn si-tt" title="TikTok">🎵</a>
+        <a href="https://pinterest.com/riclivo" target="_blank" class="social-icon-btn si-pt" title="Pinterest">📌</a>
+        <a href="https://reddit.com/u/riclivo" target="_blank" class="social-icon-btn si-rd" title="Reddit">🔴</a>
+      </div>
+      <span class="header-date" id="headerDate"></span>
+    </div>
+  </div>
+
+  <!-- ROW 2: Logo + Nav + Burger -->
+  <div class="header-row2">
 
     <!-- LOGO -->
-    <a href="/" class="logo-wrap">
+    <a href="/" class="rl-logo">
       <img src="/images/riclivo-logo.png" alt="Riclivo.online"
-           onerror="this.style.display='none'"
-           style="height:48px;width:auto;"/>
-      <div class="logo-text">
-        <span class="logo-name">Riclivo</span>
-        <span class="logo-dot-online">.online</span>
+           onerror="this.style.display='none'"/>
+      <div class="logo-fallback">
+        <span class="logo-r">Riclivo</span>
+        <span class="logo-online">.online</span>
       </div>
     </a>
 
-    <!-- DESKTOP NAV -->
-    <nav class="main-nav" id="main-nav">
+    <!-- NAV -->
+    <nav class="rl-nav" id="rlNav">
+      <!-- Close button for mobile -->
+      <button onclick="closeNav()" style="display:none;align-self:flex-end;background:none;border:none;color:white;font-size:28px;cursor:pointer;margin-bottom:16px;" id="navClose">✕</button>
       <a href="/">Home</a>
-      <a href="/categories/technology/">Tech & AI</a>
-      <a href="/categories/health/">Health</a>
-      <a href="/categories/finance/">Finance</a>
-      <a href="/categories/entertainment/">Entertainment</a>
-      <a href="/categories/football/">Football</a>
-      <a href="/categories/sports/">Sports</a>
-      <a href="/categories/news/">News</a>
+      <a href="/categories/technology/">⚡ Tech & AI</a>
+      <a href="/categories/health/">💊 Health</a>
+      <a href="/categories/finance/">💰 Finance</a>
+      <a href="/categories/entertainment/">🎬 Entertainment</a>
+      <a href="/categories/football/">⚽ Football</a>
+      <a href="/categories/sports/">🏆 Sports</a>
+      <a href="/categories/news/">📰 News</a>
     </nav>
 
-    <!-- MOBILE TOGGLE -->
-    <button class="nav-toggle" id="nav-toggle"
-            style="display:none;background:none;border:none;color:white;font-size:26px;cursor:pointer;padding:4px 8px;"
-            onclick="document.getElementById('main-nav').classList.toggle('open')">☰</button>
+    <!-- BURGER -->
+    <button class="nav-burger" id="navBurger" onclick="openNav()">☰</button>
 
   </div>
 
-  <!-- SOCIAL BAR -->
-  <div class="social-top-bar">
-    <span class="follow-label">Follow Us</span>
-    <a href="https://twitter.com/riclivo" target="_blank">𝕏 Twitter</a>
-    <a href="https://instagram.com/riclivo" target="_blank">📸 Instagram</a>
-    <a href="https://youtube.com/@RiclivoTv" target="_blank">▶ YouTube</a>
-    <a href="https://tiktok.com/@riclivo" target="_blank">🎵 TikTok</a>
-    <a href="https://pinterest.com/riclivo" target="_blank">📌 Pinterest</a>
-    <a href="https://reddit.com/u/riclivo" target="_blank">🔴 Reddit</a>
+  <!-- SEARCH BAR -->
+  <div class="rl-search-wrap">
+    <div class="rl-search-inner">
+      <span class="rl-search-icon">🔍</span>
+      <input type="text" class="rl-search-box" id="rlSearch"
+             placeholder="Search Riclivo.online — Tech, Football, Finance, Health & more..."
+             autocomplete="off"
+             oninput="handleSearch(this.value)"
+             onfocus="showCursor(true)"
+             onblur="showCursor(false)"/>
+      <div class="rl-search-cursor" id="searchCursor"></div>
+      <div class="search-dropdown" id="searchDrop"></div>
+    </div>
   </div>
+
+</header>
+
+<!-- FLOATING NEWSLETTER BALL -->
+<a href="/newsletter/" class="nl-ball" id="nlBall" title="Subscribe to Newsletter">
+  <div class="nl-ball-close" onclick="dismissBall(event)" title="Dismiss">✕</div>
+  <div class="nl-ball-icon">📬</div>
+  <div class="nl-ball-text">Newsletter</div>
+</a>
+
+<!-- NEWSLETTER POPUP (triggers after scrolling 2 posts) -->
+<div class="nl-popup" id="nlPopup">
+  <button class="nl-popup-close" onclick="document.getElementById('nlPopup').classList.remove('show')">✕</button>
+  <div class="nl-popup-title">Want to see <span>more like this?</span></div>
+  <div class="nl-popup-text">Subscribe to Riclivo.online and get the top trending stories in Tech, Football, Finance & Health delivered to you.</div>
+  <a href="/newsletter/" class="nl-popup-btn">Subscribe to Our Newsletter →</a>
 </div>
+
+<!-- SCROLL TO TOP -->
+<a href="#" class="scroll-top" id="scrollTop" onclick="scrollToTop(event)" title="Back to top">↑</a>
+
+<script>
+// DATE
+(function(){
+  const d = new Date();
+  const opts = { weekday:'long', year:'numeric', month:'long', day:'numeric' };
+  const el = document.getElementById('headerDate');
+  if(el) el.textContent = d.toLocaleDateString('en-US', opts);
+})();
+
+// NAV
+function openNav(){
+  const nav = document.getElementById('rlNav');
+  const close = document.getElementById('navClose');
+  nav.classList.add('open');
+  if(close) close.style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+function closeNav(){
+  const nav = document.getElementById('rlNav');
+  const close = document.getElementById('navClose');
+  nav.classList.remove('open');
+  if(close) close.style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// SEARCH
+function showCursor(show){
+  const c = document.getElementById('searchCursor');
+  if(c) c.style.display = show ? 'block' : 'none';
+}
+
+// Collect all page titles for search
+const allPages = [
+  {{ range .Site.RegularPages }}
+  { title: {{ .Title | jsonify }}, url: {{ .RelPermalink | jsonify }}, cat: {{ with .Params.categories }}{{ index . 0 | jsonify }}{{ else }}""{{ end }} },
+  {{ end }}
+];
+
+function handleSearch(query){
+  const drop = document.getElementById('searchDrop');
+  if(!drop) return;
+  const q = query.trim().toLowerCase();
+  if(!q){ drop.classList.remove('show'); return; }
+  
+  const matches = allPages.filter(p =>
+    p.title.toLowerCase().includes(q) || (p.cat && p.cat.toLowerCase().includes(q))
+  ).slice(0, 8);
+  
+  if(!matches.length){
+    // Show related suggestions
+    const related = allPages.slice(0,5);
+    drop.innerHTML = '<div style="padding:10px 20px;font-size:12px;color:#9E9B96;font-weight:600;border-bottom:1px solid #E2E0DC;">Related searches:</div>' +
+      related.map(p => `<a href="${p.url}" class="search-drop-item">${p.title}</a>`).join('');
+  } else {
+    drop.innerHTML = matches.map(p =>
+      `<a href="${p.url}" class="search-drop-item">
+        <span style="font-size:10px;background:#FFF8EC;color:#0B1426;padding:2px 8px;border-radius:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-right:4px;">${p.cat}</span>
+        ${p.title}
+      </a>`
+    ).join('');
+  }
+  drop.classList.add('show');
+}
+
+// Close search dropdown on outside click
+document.addEventListener('click', function(e){
+  const drop = document.getElementById('searchDrop');
+  const search = document.getElementById('rlSearch');
+  if(drop && !drop.contains(e.target) && e.target !== search){
+    drop.classList.remove('show');
+  }
+});
+
+// NEWSLETTER BALL dismiss
+function dismissBall(e){
+  e.preventDefault();
+  e.stopPropagation();
+  const ball = document.getElementById('nlBall');
+  if(ball){
+    ball.style.opacity = '0';
+    ball.style.transform = 'scale(0)';
+    ball.style.transition = 'all .3s';
+    setTimeout(() => ball.classList.add('hidden'), 300);
+  }
+}
+
+// NEWSLETTER POPUP — shows after scrolling past ~2 post heights
+let nlShown = false;
+let scrollDepth = 0;
+window.addEventListener('scroll', function(){
+  scrollDepth = window.scrollY;
+  
+  // Show scroll-to-top
+  const st = document.getElementById('scrollTop');
+  if(st){
+    if(scrollDepth > 400) st.classList.add('visible');
+    else st.classList.remove('visible');
+  }
+  
+  // Newsletter popup after reading ~2 posts worth
+  if(!nlShown && scrollDepth > 1800){
+    const popup = document.getElementById('nlPopup');
+    if(popup){
+      popup.classList.add('show');
+      nlShown = true;
+    }
+  }
+});
+
+function scrollToTop(e){
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>

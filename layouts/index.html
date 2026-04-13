@@ -1,154 +1,252 @@
 {{- define "main" }}
 
-<!-- Breaking News Ticker -->
-<div class="news-ticker">
-  <div style="display:flex;align-items:center;overflow:hidden;width:100%;">
-    <span class="ticker-label">🔥 TRENDING NOW</span>
-    <div style="overflow:hidden;flex:1;">
-      <div class="ticker-content">
-        {{ range first 10 .Site.RegularPages }}
-          &nbsp;&nbsp;&nbsp;&nbsp;⚡&nbsp;<a href="{{ .RelPermalink }}" style="color:var(--blue-dark);text-decoration:none;font-weight:700;">{{ .Title }}</a>&nbsp;&nbsp;&nbsp;&nbsp;|
-        {{ end }}
-        {{ range first 10 .Site.RegularPages }}
-          &nbsp;&nbsp;&nbsp;&nbsp;⚡&nbsp;<a href="{{ .RelPermalink }}" style="color:var(--blue-dark);text-decoration:none;font-weight:700;">{{ .Title }}</a>&nbsp;&nbsp;&nbsp;&nbsp;|
-        {{ end }}
+<div class="rl-page">
+
+  <!-- ── HERO ─────────────────────────────────────────────── -->
+  {{ $featured := first 1 .Site.RegularPages }}
+  {{ range $featured }}
+  <div class="hero-container">
+    {{ with .Params.cover }}
+    <img src="{{ .image }}" alt="{{ $.Title }}" class="hero-img"/>
+    {{ end }}
+    <div class="hero-vignette"></div>
+    <div class="hero-content">
+      {{ with .Params.categories }}
+      <div class="hero-badge">🔥 {{ index . 0 }}</div>
+      {{ end }}
+      <h1 class="hero-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+      <div class="hero-meta">
+        <span>📅 {{ .Date.Format "January 2, 2006" }}</span>
+        <span>⏱ {{ .ReadingTime }} min read</span>
       </div>
     </div>
   </div>
-</div>
-
-<div class="main-wrapper">
-
-  <!-- HERO SECTION -->
-  {{ $featured := first 1 .Site.RegularPages }}
-  {{ range $featured }}
-  <section class="hero-section">
-    <div class="hero-post">
-      {{ with .Params.cover }}
-      <img src="{{ .image }}" alt="{{ $.Title }}" class="hero-image"/>
-      {{ end }}
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        {{ with .Params.categories }}
-        <span class="hero-category">{{ index . 0 }}</span>
-        {{ end }}
-        <h2 class="hero-title">
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        </h2>
-        <div class="hero-meta">
-          📅 {{ .Date.Format "January 2, 2006" }} &nbsp;·&nbsp; ⏱ {{ .ReadingTime }} min read
-        </div>
-      </div>
-    </div>
-  </section>
   {{ end }}
 
-  <!-- MAIN CONTENT + SIDEBAR -->
-  <div class="content-sidebar-wrap">
-
+  <!-- ── MAIN GRID ─────────────────────────────────────────── -->
+  <div class="rl-grid">
     <div>
-      <!-- LATEST NEWS GRID -->
-      <h2 class="section-title">Latest Stories</h2>
-      <div class="post-grid">
+
+      <!-- LATEST STORIES -->
+      <div class="seg-divider">
+        <div class="seg-divider-line"></div>
+        <div class="seg-title"><span class="seg-icon">📰</span> Latest Stories</div>
+        <div class="seg-divider-line right"></div>
+      </div>
+
+      <div class="posts-row">
         {{ range first 6 (after 1 .Site.RegularPages) }}
-        <a href="{{ .RelPermalink }}" class="post-card">
-          <div class="post-card-image">
+        <a href="{{ .RelPermalink }}" class="rl-card">
+          <div class="card-img">
             {{ with .Params.cover }}
-            <img src="{{ .image }}" alt="{{ $.Title }}"/>
+            <img src="{{ .image }}" alt="{{ $.Title }}" loading="lazy"/>
             {{ else }}
-            <span style="color:rgba(255,255,255,0.3);font-size:48px;">📰</span>
+            <div class="card-img-placeholder">
+              {{ with .Params.categories }}{{ $c := index . 0 }}{{ if eq $c "Technology" }}💻{{ else if eq $c "AI" }}🤖{{ else if eq $c "Health" }}💊{{ else if eq $c "Finance" }}💰{{ else if eq $c "Entertainment" }}🎬{{ else if eq $c "Football" }}⚽{{ else if eq $c "Sports" }}🏆{{ else }}📰{{ end }}{{ end }}
+            </div>
             {{ end }}
           </div>
-          <div class="post-card-body">
-            {{ with .Params.categories }}
-            <span class="post-card-category">{{ index . 0 }}</span>
-            {{ end }}
-            <div class="post-card-title">{{ .Title }}</div>
-            <p class="post-card-excerpt">{{ .Summary | truncate 100 }}</p>
-            <div class="post-card-meta">
-              <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+          <div class="card-body">
+            {{ with .Params.categories }}<span class="card-cat">{{ index . 0 }}</span>{{ end }}
+            <div class="card-title">{{ .Title }}</div>
+            <p class="card-excerpt">{{ .Summary | truncate 90 }}</p>
+            <div class="card-footer">
+              <span>{{ .Date.Format "Jan 2" }}</span>
               <span>·</span>
-              <span>{{ .ReadingTime }} min</span>
+              <span>{{ .ReadingTime }}m read</span>
             </div>
           </div>
         </a>
         {{ end }}
       </div>
 
-      <!-- TECH & AI SECTION -->
-      {{ $tech := where .Site.RegularPages "Params.categories" "intersect" (slice "Technology") }}
+      <!-- COMENTRYX AD (after latest stories) -->
+      <a href="https://comentrix.riclivo.com" target="_blank" class="mid-ad" style="margin:0 0 8px;">
+        <div class="mid-ad-logo">🔍</div>
+        <div class="mid-ad-body">
+          <div class="mid-ad-title">Are those comments real? — Try Comentryx</div>
+          <div class="mid-ad-text">Analyze any post's engagement. Detect bots, fake comments & sentiment patterns instantly.</div>
+        </div>
+        <span class="mid-ad-cta">Try Free →</span>
+      </a>
+
+      <!-- TECH & AI SEGMENT -->
+      {{ $tech := where .Site.RegularPages "Params.categories" "intersect" (slice "Technology" "AI") }}
       {{ if $tech }}
-      <h2 class="section-title" style="margin-top:32px;">⚡ Tech & AI</h2>
-      <div class="post-grid">
+      <div class="seg-divider">
+        <div class="seg-divider-line"></div>
+        <div class="seg-title"><span class="seg-icon">⚡</span> Tech & AI</div>
+        <div class="seg-divider-line right"></div>
+      </div>
+      <div class="posts-row">
         {{ range first 3 $tech }}
-        <a href="{{ .RelPermalink }}" class="post-card">
-          <div class="post-card-image">
-            {{ with .Params.cover }}<img src="{{ .image }}" alt="{{ $.Title }}"/>{{ else }}
-            <span style="color:rgba(255,255,255,0.3);font-size:48px;">💻</span>{{ end }}
+        <a href="{{ .RelPermalink }}" class="rl-card">
+          <div class="card-img">
+            {{ with .Params.cover }}<img src="{{ .image }}" alt="{{ $.Title }}" loading="lazy"/>{{ else }}<div class="card-img-placeholder">💻</div>{{ end }}
           </div>
-          <div class="post-card-body">
-            <span class="post-card-category">Technology</span>
-            <div class="post-card-title">{{ .Title }}</div>
-            <div class="post-card-meta">
-              <span>{{ .Date.Format "Jan 2" }}</span> · <span>{{ .ReadingTime }} min</span>
-            </div>
+          <div class="card-body">
+            <span class="card-cat">{{ with .Params.categories }}{{ index . 0 }}{{ end }}</span>
+            <div class="card-title">{{ .Title }}</div>
+            <div class="card-footer"><span>{{ .Date.Format "Jan 2" }}</span><span>·</span><span>{{ .ReadingTime }}m</span></div>
           </div>
         </a>
         {{ end }}
       </div>
       {{ end }}
 
-      <!-- FOOTBALL SECTION -->
-      {{ $football := where .Site.RegularPages "Params.categories" "intersect" (slice "Football") }}
+      <!-- FOOTBALL SEGMENT -->
+      {{ $football := where .Site.RegularPages "Params.categories" "intersect" (slice "Football" "Sports") }}
       {{ if $football }}
-      <h2 class="section-title" style="margin-top:32px;">⚽ Football News</h2>
-      <div class="post-grid">
+      <div class="seg-divider">
+        <div class="seg-divider-line"></div>
+        <div class="seg-title"><span class="seg-icon">⚽</span> Football & Sports</div>
+        <div class="seg-divider-line right"></div>
+      </div>
+      <div class="posts-row">
         {{ range first 3 $football }}
-        <a href="{{ .RelPermalink }}" class="post-card">
-          <div class="post-card-image">
-            {{ with .Params.cover }}<img src="{{ .image }}" alt="{{ $.Title }}"/>{{ else }}
-            <span style="color:rgba(255,255,255,0.3);font-size:48px;">⚽</span>{{ end }}
+        <a href="{{ .RelPermalink }}" class="rl-card">
+          <div class="card-img">
+            {{ with .Params.cover }}<img src="{{ .image }}" alt="{{ $.Title }}" loading="lazy"/>{{ else }}<div class="card-img-placeholder">⚽</div>{{ end }}
           </div>
-          <div class="post-card-body">
-            <span class="post-card-category">Football</span>
-            <div class="post-card-title">{{ .Title }}</div>
-            <div class="post-card-meta">
-              <span>{{ .Date.Format "Jan 2" }}</span> · <span>{{ .ReadingTime }} min</span>
-            </div>
+          <div class="card-body">
+            <span class="card-cat">{{ with .Params.categories }}{{ index . 0 }}{{ end }}</span>
+            <div class="card-title">{{ .Title }}</div>
+            <div class="card-footer"><span>{{ .Date.Format "Jan 2" }}</span><span>·</span><span>{{ .ReadingTime }}m</span></div>
           </div>
         </a>
         {{ end }}
       </div>
       {{ end }}
 
-      <!-- FINANCE SECTION -->
-      {{ $finance := where .Site.RegularPages "Params.categories" "intersect" (slice "Finance") }}
-      {{ if $finance }}
-      <h2 class="section-title" style="margin-top:32px;">💰 Finance & Money</h2>
-      <div class="post-grid">
-        {{ range first 3 $finance }}
-        <a href="{{ .RelPermalink }}" class="post-card">
-          <div class="post-card-image">
-            {{ with .Params.cover }}<img src="{{ .image }}" alt="{{ $.Title }}"/>{{ else }}
-            <span style="color:rgba(255,255,255,0.3);font-size:48px;">💰</span>{{ end }}
+      <!-- FINANCE SEGMENT -->
+      {{ $fin := where .Site.RegularPages "Params.categories" "intersect" (slice "Finance") }}
+      {{ if $fin }}
+      <div class="seg-divider">
+        <div class="seg-divider-line"></div>
+        <div class="seg-title"><span class="seg-icon">💰</span> Finance & Money</div>
+        <div class="seg-divider-line right"></div>
+      </div>
+      <div class="posts-row">
+        {{ range first 3 $fin }}
+        <a href="{{ .RelPermalink }}" class="rl-card">
+          <div class="card-img">
+            {{ with .Params.cover }}<img src="{{ .image }}" alt="{{ $.Title }}" loading="lazy"/>{{ else }}<div class="card-img-placeholder">💰</div>{{ end }}
           </div>
-          <div class="post-card-body">
-            <span class="post-card-category">Finance</span>
-            <div class="post-card-title">{{ .Title }}</div>
-            <div class="post-card-meta">
-              <span>{{ .Date.Format "Jan 2" }}</span> · <span>{{ .ReadingTime }} min</span>
-            </div>
+          <div class="card-body">
+            <span class="card-cat">Finance</span>
+            <div class="card-title">{{ .Title }}</div>
+            <div class="card-footer"><span>{{ .Date.Format "Jan 2" }}</span><span>·</span><span>{{ .ReadingTime }}m</span></div>
           </div>
         </a>
         {{ end }}
       </div>
       {{ end }}
+
+      <!-- HEALTH SEGMENT -->
+      {{ $health := where .Site.RegularPages "Params.categories" "intersect" (slice "Health") }}
+      {{ if $health }}
+      <div class="seg-divider">
+        <div class="seg-divider-line"></div>
+        <div class="seg-title"><span class="seg-icon">💊</span> Health & Wellness</div>
+        <div class="seg-divider-line right"></div>
+      </div>
+      <div class="posts-row">
+        {{ range first 3 $health }}
+        <a href="{{ .RelPermalink }}" class="rl-card">
+          <div class="card-img">
+            {{ with .Params.cover }}<img src="{{ .image }}" alt="{{ $.Title }}" loading="lazy"/>{{ else }}<div class="card-img-placeholder">💊</div>{{ end }}
+          </div>
+          <div class="card-body">
+            <span class="card-cat">Health</span>
+            <div class="card-title">{{ .Title }}</div>
+            <div class="card-footer"><span>{{ .Date.Format "Jan 2" }}</span><span>·</span><span>{{ .ReadingTime }}m</span></div>
+          </div>
+        </a>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      <!-- ENTERTAINMENT SEGMENT -->
+      {{ $ent := where .Site.RegularPages "Params.categories" "intersect" (slice "Entertainment") }}
+      {{ if $ent }}
+      <div class="seg-divider">
+        <div class="seg-divider-line"></div>
+        <div class="seg-title"><span class="seg-icon">🎬</span> Entertainment</div>
+        <div class="seg-divider-line right"></div>
+      </div>
+      <div class="posts-row">
+        {{ range first 3 $ent }}
+        <a href="{{ .RelPermalink }}" class="rl-card">
+          <div class="card-img">
+            {{ with .Params.cover }}<img src="{{ .image }}" alt="{{ $.Title }}" loading="lazy"/>{{ else }}<div class="card-img-placeholder">🎬</div>{{ end }}
+          </div>
+          <div class="card-body">
+            <span class="card-cat">Entertainment</span>
+            <div class="card-title">{{ .Title }}</div>
+            <div class="card-footer"><span>{{ .Date.Format "Jan 2" }}</span><span>·</span><span>{{ .ReadingTime }}m</span></div>
+          </div>
+        </a>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      <!-- NEWSLETTER TAGLINE -->
+      <div class="nl-tagline">
+        <div class="nl-tagline-text">Stay <span>ahead of the news.</span> Get Riclivo's top stories in Tech, Football, Finance & Health — delivered daily, no spam.</div>
+        <a href="/newsletter/" class="nl-tagline-btn">Subscribe Free →</a>
+      </div>
 
     </div>
 
-    <!-- SIDEBAR -->
-    {{ partial "sidebar.html" . }}
+    <!-- ── SIDEBAR ──────────────────────────────────────────── -->
+    <aside class="rl-sidebar">
 
+      <!-- Comentryx Ad -->
+      <div class="sidebar-widget">
+        <div class="widget-head">Sponsored</div>
+        <a href="https://comentrix.riclivo.com" target="_blank" class="ad-ctryx">
+          <div class="ad-ctryx-logo-fb">🔍</div>
+          <div class="ad-ctryx-body">
+            <div class="ad-ctryx-title">Are Comments Real?</div>
+            <div class="ad-ctryx-text">Detect fake engagement & bots instantly with Comentryx AI.</div>
+            <span class="ad-ctryx-btn">Try Free →</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Advertise -->
+      <div class="sidebar-widget">
+        <div class="widget-head">Advertise With Us</div>
+        <div class="ad-place">
+          <div class="ad-place-title">Place Your Advert Here</div>
+          <div class="ad-place-text">Reach thousands of daily readers across 8 niches worldwide.</div>
+          <div class="ad-stats-row">
+            <div class="ad-stat"><span class="ad-stat-n">10K+</span><span class="ad-stat-l">Daily Readers</span></div>
+            <div class="ad-stat"><span class="ad-stat-n">🌍</span><span class="ad-stat-l">Global Family</span></div>
+            <div class="ad-stat"><span class="ad-stat-n">24/7</span><span class="ad-stat-l">Publishing</span></div>
+          </div>
+          <a href="mailto:n.c.denis@riclivo.com?subject=Advertising on Riclivo.online" class="ad-btn-email">📧 Email Us</a>
+          <a href="https://wa.me/2349034100339?text=Hi, I'd like to advertise on Riclivo.online" target="_blank" class="ad-btn-wa">💬 WhatsApp Us</a>
+        </div>
+      </div>
+
+      <!-- Trending -->
+      <div class="sidebar-widget">
+        <div class="widget-head">🔥 Trending Now</div>
+        <div class="trending-list">
+          {{ range $i, $p := first 7 .Site.RegularPages }}
+          <a href="{{ $p.RelPermalink }}" class="trending-item-w">
+            <span class="t-num">{{ add $i 1 }}</span>
+            <div>
+              <span class="t-cat">{{ with $p.Params.categories }}{{ index . 0 }}{{ end }}</span>
+              <div class="t-title">{{ $p.Title }}</div>
+            </div>
+          </a>
+          {{ end }}
+        </div>
+      </div>
+
+    </aside>
   </div>
 </div>
 

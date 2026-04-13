@@ -8,10 +8,10 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Riclivo.online</title>
 
-<meta name="description" content="Your daily source for Tech, AI, Health, Finance, Entertainment &amp; Football news">
+<meta name="description" content="Your daily source for Tech, AI, Health, Finance, Entertainment, Football &amp; Sports news">
 <meta name="author" content="Riclivo Editorial Team">
 <link rel="canonical" href="http://localhost:1313/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.597f45b030cdf15562aa67f6f10c7d7fc503071c0620b9e187983b7d571dc735.css" integrity="sha256-WX9FsDDN8VViqmf28Qx9f8UDBxwGILnhh5g7fVcdxzU=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.6155807f271d5c625fc9e3e2221b300c524a1c5d22322e7c11ddb9c67e4dd1e8.css" integrity="sha256-YVWAfycdXGJfyePiIhswDFJKHF0iMi58Ed25xn5N0eg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -67,128 +67,431 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </head>
 <body class="list" id="top">
-    <header class="header" id="site-header">
-  <div class="header-inner">
+    
+<div class="rl-ticker">
+  <div class="ticker-badge">
+    <div class="ticker-dot"></div>
+    TRENDING
+  </div>
+  <div class="ticker-track">
+    <div class="ticker-inner" id="tickerInner">
+      
+      <a href="/advertise/" class="ticker-item">Advertise With Us</a>
+      
+      <a href="/contact/" class="ticker-item">Contact Us</a>
+      
+      <a href="/newsletter/" class="ticker-item">Newsletter</a>
+      
+      <a href="/privacy/" class="ticker-item">Privacy Policy</a>
+      
+      <a href="/posts/2026-04-11-ais-disruption-in-newsrooms-a-double-edged-sword/" class="ticker-item">AI&#39;s Disruption in Newsrooms: A Double-Edged Sword</a>
+      
+      <a href="/post/my-first-post/" class="ticker-item">My First Post</a>
+      
+      
+      <a href="/advertise/" class="ticker-item">Advertise With Us</a>
+      
+      <a href="/contact/" class="ticker-item">Contact Us</a>
+      
+      <a href="/newsletter/" class="ticker-item">Newsletter</a>
+      
+      <a href="/privacy/" class="ticker-item">Privacy Policy</a>
+      
+      <a href="/posts/2026-04-11-ais-disruption-in-newsrooms-a-double-edged-sword/" class="ticker-item">AI&#39;s Disruption in Newsrooms: A Double-Edged Sword</a>
+      
+      <a href="/post/my-first-post/" class="ticker-item">My First Post</a>
+      
+    </div>
+  </div>
+</div>
+
+
+<header class="rl-header" id="rl-header">
+
+  
+  <div style="background:#080f1e;border-bottom:1px solid rgba(232,160,32,.15);padding:0 24px;">
+    <div style="max-width:1320px;margin:0 auto;height:36px;display:flex;align-items:center;justify-content:space-between;">
+      <div class="social-icons-row">
+        <span style="font-size:10px;color:rgba(255,255,255,.35);letter-spacing:2px;text-transform:uppercase;margin-right:6px;">Follow</span>
+        <a href="https://twitter.com/riclivo" target="_blank" class="social-icon-btn si-x" title="Twitter/X">𝕏</a>
+        <a href="https://instagram.com/riclivo" target="_blank" class="social-icon-btn si-ig" title="Instagram">📸</a>
+        <a href="https://youtube.com/@RiclivoTv" target="_blank" class="social-icon-btn si-yt" title="YouTube">▶</a>
+        <a href="https://tiktok.com/@riclivo" target="_blank" class="social-icon-btn si-tt" title="TikTok">🎵</a>
+        <a href="https://pinterest.com/riclivo" target="_blank" class="social-icon-btn si-pt" title="Pinterest">📌</a>
+        <a href="https://reddit.com/u/riclivo" target="_blank" class="social-icon-btn si-rd" title="Reddit">🔴</a>
+      </div>
+      <span class="header-date" id="headerDate"></span>
+    </div>
+  </div>
+
+  
+  <div class="header-row2">
 
     
-    <a href="/" class="site-logo">
+    <a href="/" class="rl-logo">
       <img src="/images/riclivo-logo.png" alt="Riclivo.online"
-           style="height:45px;width:auto;"
-           onerror="this.style.display='none';document.getElementById('text-logo').style.display='flex'"/>
-      
-      <div id="text-logo" style="display:none;align-items:center;gap:2px;">
-        <span style="font-size:22px;font-weight:900;color:white;letter-spacing:-1px;">Riclivo</span>
-        <span style="font-size:14px;font-weight:700;background:linear-gradient(90deg,#00c8ff,#d4a017);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">.online</span>
+           onerror="this.style.display='none'"/>
+      <div class="logo-fallback">
+        <span class="logo-r">Riclivo</span>
+        <span class="logo-online">.online</span>
       </div>
     </a>
 
     
-    <nav class="main-nav" id="main-nav">
+    <nav class="rl-nav" id="rlNav">
+      
+      <button onclick="closeNav()" style="display:none;align-self:flex-end;background:none;border:none;color:white;font-size:28px;cursor:pointer;margin-bottom:16px;" id="navClose">✕</button>
       <a href="/">Home</a>
-      <a href="/categories/technology/">Tech & AI</a>
-      <a href="/categories/health/">Health</a>
-      <a href="/categories/finance/">Finance</a>
-      <a href="/categories/entertainment/">Entertainment</a>
-      <a href="/categories/football/">Football</a>
-      <a href="/categories/news/">News</a>
+      <a href="/categories/technology/">⚡ Tech & AI</a>
+      <a href="/categories/health/">💊 Health</a>
+      <a href="/categories/finance/">💰 Finance</a>
+      <a href="/categories/entertainment/">🎬 Entertainment</a>
+      <a href="/categories/football/">⚽ Football</a>
+      <a href="/categories/sports/">🏆 Sports</a>
+      <a href="/categories/news/">📰 News</a>
     </nav>
 
     
-    <div style="display:flex;align-items:center;gap:12px;">
-      <a href="/search/" style="color:rgba(255,255,255,0.7);font-size:18px;text-decoration:none;" title="Search">🔍</a>
-      <button onclick="document.getElementById('main-nav').classList.toggle('open')"
-              style="display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer;"
-              id="nav-toggle">☰</button>
-    </div>
+    <button class="nav-burger" id="navBurger" onclick="openNav()">☰</button>
 
   </div>
 
   
-  <div class="social-bar">
-    <span class="social-bar-label">Follow Us:</span>
-    <a href="https://twitter.com/riclivo" target="_blank">𝕏 Twitter</a>
-    <a href="https://instagram.com/riclivo" target="_blank">📸 Instagram</a>
-    <a href="https://youtube.com/@RiclivoTv" target="_blank">▶️ YouTube</a>
-    <a href="https://tiktok.com/@riclivo" target="_blank">🎵 TikTok</a>
-    <a href="https://pinterest.com/riclivo" target="_blank">📌 Pinterest</a>
-    <a href="https://reddit.com/u/riclivo" target="_blank">🔴 Reddit</a>
+  <div class="rl-search-wrap">
+    <div class="rl-search-inner">
+      <span class="rl-search-icon">🔍</span>
+      <input type="text" class="rl-search-box" id="rlSearch"
+             placeholder="Search Riclivo.online — Tech, Football, Finance, Health & more..."
+             autocomplete="off"
+             oninput="handleSearch(this.value)"
+             onfocus="showCursor(true)"
+             onblur="showCursor(false)"/>
+      <div class="rl-search-cursor" id="searchCursor"></div>
+      <div class="search-dropdown" id="searchDrop"></div>
+    </div>
   </div>
 
 </header>
 
-<style>
- 
-@media (max-width: 900px) {
-  #nav-toggle { display:block !important; }
-  .main-nav {
-    display: none;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    right: 0;
-    background: var(--blue-dark);
-    flex-direction: column;
-    padding: 16px;
-    border-bottom: 3px solid var(--gold);
-    z-index: 999;
-  }
-  .main-nav.open { display: flex !important; }
-  .main-nav a { padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.05); }
-  .social-bar { display: none; }
+
+<a href="/newsletter/" class="nl-ball" id="nlBall" title="Subscribe to Newsletter">
+  <div class="nl-ball-close" onclick="dismissBall(event)" title="Dismiss">✕</div>
+  <div class="nl-ball-icon">📬</div>
+  <div class="nl-ball-text">Newsletter</div>
+</a>
+
+
+<div class="nl-popup" id="nlPopup">
+  <button class="nl-popup-close" onclick="document.getElementById('nlPopup').classList.remove('show')">✕</button>
+  <div class="nl-popup-title">Want to see <span>more like this?</span></div>
+  <div class="nl-popup-text">Subscribe to Riclivo.online and get the top trending stories in Tech, Football, Finance & Health delivered to you.</div>
+  <a href="/newsletter/" class="nl-popup-btn">Subscribe to Our Newsletter →</a>
+</div>
+
+
+<a href="#" class="scroll-top" id="scrollTop" onclick="scrollToTop(event)" title="Back to top">↑</a>
+
+<script>
+
+(function(){
+  const d = new Date();
+  const opts = { weekday:'long', year:'numeric', month:'long', day:'numeric' };
+  const el = document.getElementById('headerDate');
+  if(el) el.textContent = d.toLocaleDateString('en-US', opts);
+})();
+
+
+function openNav(){
+  const nav = document.getElementById('rlNav');
+  const close = document.getElementById('navClose');
+  nav.classList.add('open');
+  if(close) close.style.display = 'block';
+  document.body.style.overflow = 'hidden';
 }
-</style>
+function closeNav(){
+  const nav = document.getElementById('rlNav');
+  const close = document.getElementById('navClose');
+  nav.classList.remove('open');
+  if(close) close.style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+
+function showCursor(show){
+  const c = document.getElementById('searchCursor');
+  if(c) c.style.display = show ? 'block' : 'none';
+}
+
+
+const allPages = [
+  
+  { title: "\"Advertise With Us\"", url: "\"/advertise/\"", cat: "" },
+  
+  { title: "\"Contact Us\"", url: "\"/contact/\"", cat: "" },
+  
+  { title: "\"Newsletter\"", url: "\"/newsletter/\"", cat: "" },
+  
+  { title: "\"Privacy Policy\"", url: "\"/privacy/\"", cat: "" },
+  
+  { title: "\"AI's Disruption in Newsrooms: A Double-Edged Sword\"", url: "\"/posts/2026-04-11-ais-disruption-in-newsrooms-a-double-edged-sword/\"", cat: "\"Technology\"" },
+  
+  { title: "\"My First Post\"", url: "\"/post/my-first-post/\"", cat: "" },
+  
+];
+
+function handleSearch(query){
+  const drop = document.getElementById('searchDrop');
+  if(!drop) return;
+  const q = query.trim().toLowerCase();
+  if(!q){ drop.classList.remove('show'); return; }
+  
+  const matches = allPages.filter(p =>
+    p.title.toLowerCase().includes(q) || (p.cat && p.cat.toLowerCase().includes(q))
+  ).slice(0, 8);
+  
+  if(!matches.length){
+    
+    const related = allPages.slice(0,5);
+    drop.innerHTML = '<div style="padding:10px 20px;font-size:12px;color:#9E9B96;font-weight:600;border-bottom:1px solid #E2E0DC;">Related searches:</div>' +
+      related.map(p => `<a href="${p.url}" class="search-drop-item">${p.title}</a>`).join('');
+  } else {
+    drop.innerHTML = matches.map(p =>
+      `<a href="${p.url}" class="search-drop-item">
+        <span style="font-size:10px;background:#FFF8EC;color:#0B1426;padding:2px 8px;border-radius:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-right:4px;">${p.cat}</span>
+        ${p.title}
+      </a>`
+    ).join('');
+  }
+  drop.classList.add('show');
+}
+
+
+document.addEventListener('click', function(e){
+  const drop = document.getElementById('searchDrop');
+  const search = document.getElementById('rlSearch');
+  if(drop && !drop.contains(e.target) && e.target !== search){
+    drop.classList.remove('show');
+  }
+});
+
+
+function dismissBall(e){
+  e.preventDefault();
+  e.stopPropagation();
+  const ball = document.getElementById('nlBall');
+  if(ball){
+    ball.style.opacity = '0';
+    ball.style.transform = 'scale(0)';
+    ball.style.transition = 'all .3s';
+    setTimeout(() => ball.classList.add('hidden'), 300);
+  }
+}
+
+
+let nlShown = false;
+let scrollDepth = 0;
+window.addEventListener('scroll', function(){
+  scrollDepth = window.scrollY;
+  
+  
+  const st = document.getElementById('scrollTop');
+  if(st){
+    if(scrollDepth > 400) st.classList.add('visible');
+    else st.classList.remove('visible');
+  }
+  
+  
+  if(!nlShown && scrollDepth > 1800){
+    const popup = document.getElementById('nlPopup');
+    if(popup){
+      popup.classList.add('show');
+      nlShown = true;
+    }
+  }
+});
+
+function scrollToTop(e){
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
 <main class="main">
 
+<div class="rl-page">
 
-<div class="news-ticker">
-  <div style="display:flex;align-items:center;overflow:hidden;width:100%;">
-    <span class="ticker-label">🔥 TRENDING NOW</span>
-    <div style="overflow:hidden;flex:1;">
-      <div class="ticker-content">
-        
-          &nbsp;&nbsp;&nbsp;&nbsp;⚡&nbsp;<a href="/post/my-first-post/" style="color:var(--blue-dark);text-decoration:none;font-weight:700;">My First Post</a>&nbsp;&nbsp;&nbsp;&nbsp;|
-        
-        
-          &nbsp;&nbsp;&nbsp;&nbsp;⚡&nbsp;<a href="/post/my-first-post/" style="color:var(--blue-dark);text-decoration:none;font-weight:700;">My First Post</a>&nbsp;&nbsp;&nbsp;&nbsp;|
-        
+  
+  
+  
+  <div class="hero-container">
+    
+    <div class="hero-vignette"></div>
+    <div class="hero-content">
+      
+      <h1 class="hero-title"><a href="/advertise/">Advertise With Us</a></h1>
+      <div class="hero-meta">
+        <span>📅 April 12, 2026</span>
+        <span>⏱ 0 min read</span>
       </div>
     </div>
   </div>
-</div>
-
-<div class="main-wrapper">
-
-  
-  
-  
-  <section class="hero-section">
-    <div class="hero-post">
-      
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        
-        <h2 class="hero-title">
-          <a href="/post/my-first-post/">My First Post</a>
-        </h2>
-        <div class="hero-meta">
-          📅 April 6, 2026 &nbsp;·&nbsp; ⏱ 1 min read
-        </div>
-      </div>
-    </div>
-  </section>
   
 
   
-  <div class="content-sidebar-wrap">
-
+  <div class="rl-grid">
     <div>
+
       
-      <h2 class="section-title">Latest Stories</h2>
-      <div class="post-grid">
+      <div class="seg-divider">
+        <div class="seg-divider-line"></div>
+        <div class="seg-title"><span class="seg-icon">📰</span> Latest Stories</div>
+        <div class="seg-divider-line right"></div>
+      </div>
+
+      <div class="posts-row">
+        
+        <a href="/contact/" class="rl-card">
+          <div class="card-img">
+            
+            <div class="card-img-placeholder">
+              
+            </div>
+            
+          </div>
+          <div class="card-body">
+            
+            <div class="card-title">Contact Us</div>
+            <p class="card-excerpt"></p>
+            <div class="card-footer">
+              <span>Apr 12</span>
+              <span>·</span>
+              <span>0m read</span>
+            </div>
+          </div>
+        </a>
+        
+        <a href="/newsletter/" class="rl-card">
+          <div class="card-img">
+            
+            <div class="card-img-placeholder">
+              
+            </div>
+            
+          </div>
+          <div class="card-body">
+            
+            <div class="card-title">Newsletter</div>
+            <p class="card-excerpt"><h2 id="subscribe-to-riclivoonline">Subscribe to Riclivo.online</h2>
+<p>Get the top trending stories in Tech, AI, Health, Finance, …</p></p>
+            <div class="card-footer">
+              <span>Apr 12</span>
+              <span>·</span>
+              <span>1m read</span>
+            </div>
+          </div>
+        </a>
+        
+        <a href="/privacy/" class="rl-card">
+          <div class="card-img">
+            
+            <div class="card-img-placeholder">
+              
+            </div>
+            
+          </div>
+          <div class="card-body">
+            
+            <div class="card-title">Privacy Policy</div>
+            <p class="card-excerpt"><h2 id="privacy-policy--riclivoonline">Privacy Policy — Riclivo.online</h2>
+<p><em>Last updated: April 12, 2026</em></p>
+<p>Riclivo.online is operated by …</p></p>
+            <div class="card-footer">
+              <span>Apr 12</span>
+              <span>·</span>
+              <span>2m read</span>
+            </div>
+          </div>
+        </a>
+        
+        <a href="/posts/2026-04-11-ais-disruption-in-newsrooms-a-double-edged-sword/" class="rl-card">
+          <div class="card-img">
+            
+            <img src="/images/posts/ais-disruption-in-newsrooms-a-double-edged-sword.jpg" alt="Riclivo.online" loading="lazy"/>
+            
+          </div>
+          <div class="card-body">
+            <span class="card-cat">Technology</span>
+            <div class="card-title">AI&#39;s Disruption in Newsrooms: A Double-Edged Sword</div>
+            <p class="card-excerpt"><p>Artificial intelligence is reshaping newsrooms faster than you can say “breaking news.” …</p></p>
+            <div class="card-footer">
+              <span>Apr 11</span>
+              <span>·</span>
+              <span>3m read</span>
+            </div>
+          </div>
+        </a>
+        
+        <a href="/post/my-first-post/" class="rl-card">
+          <div class="card-img">
+            
+            <div class="card-img-placeholder">
+              
+            </div>
+            
+          </div>
+          <div class="card-body">
+            
+            <div class="card-title">My First Post</div>
+            <p class="card-excerpt"><p>I checked comments on a viral video… something feels off</p>
+<p>I was going through comments on a …</p></p>
+            <div class="card-footer">
+              <span>Apr 6</span>
+              <span>·</span>
+              <span>1m read</span>
+            </div>
+          </div>
+        </a>
         
       </div>
 
       
+      <a href="https://comentrix.riclivo.com" target="_blank" class="mid-ad" style="margin:0 0 8px;">
+        <div class="mid-ad-logo">🔍</div>
+        <div class="mid-ad-body">
+          <div class="mid-ad-title">Are those comments real? — Try Comentryx</div>
+          <div class="mid-ad-text">Analyze any post's engagement. Detect bots, fake comments & sentiment patterns instantly.</div>
+        </div>
+        <span class="mid-ad-cta">Try Free →</span>
+      </a>
+
+      
+      
+      
+      <div class="seg-divider">
+        <div class="seg-divider-line"></div>
+        <div class="seg-title"><span class="seg-icon">⚡</span> Tech & AI</div>
+        <div class="seg-divider-line right"></div>
+      </div>
+      <div class="posts-row">
+        
+        <a href="/posts/2026-04-11-ais-disruption-in-newsrooms-a-double-edged-sword/" class="rl-card">
+          <div class="card-img">
+            <img src="/images/posts/ais-disruption-in-newsrooms-a-double-edged-sword.jpg" alt="Riclivo.online" loading="lazy"/>
+          </div>
+          <div class="card-body">
+            <span class="card-cat">Technology</span>
+            <div class="card-title">AI&#39;s Disruption in Newsrooms: A Double-Edged Sword</div>
+            <div class="card-footer"><span>Apr 11</span><span>·</span><span>3m</span></div>
+          </div>
+        </a>
+        
+      </div>
+      
+
+      
+      
+      
+
+      
       
       
 
@@ -199,137 +502,139 @@ document.addEventListener('DOMContentLoaded', function() {
       
       
       
+
+      
+      <div class="nl-tagline">
+        <div class="nl-tagline-text">Stay <span>ahead of the news.</span> Get Riclivo's top stories in Tech, Football, Finance & Health — delivered daily, no spam.</div>
+        <a href="/newsletter/" class="nl-tagline-btn">Subscribe Free →</a>
+      </div>
 
     </div>
 
     
-    <aside class="sidebar">
+    <aside class="rl-sidebar">
 
-  
-  <div class="sidebar-widget">
-    <p class="widget-title">Sponsored</p>
-    <a href="https://comentrix.riclivo.com" target="_blank" class="comentryx-ad">
-      <img src="/images/comentryx-logo.png" alt="Comentryx" class="comentryx-logo"
-           onerror="this.style.fontSize='48px';this.style.display='block';this.innerHTML='C'"/>
-      <div class="comentryx-headline">Are Those Comments REAL?</div>
-      <p class="comentryx-text">
-        Analyze any post's comment section instantly. Detect fake engagement, bots, and sentiment patterns before you share or promote.
-      </p>
-      <span class="comentryx-btn">Try Comentryx Free</span>
-    </a>
-  </div>
-
-  
-  <div class="sidebar-widget">
-    <p class="widget-title">Advertise With Us</p>
-    <div class="advertise-widget">
-      <div class="advertise-icon">📢</div>
-      <div class="advertise-headline">Place Your Advert Here</div>
-      <p class="advertise-text">
-        Reach thousands of daily readers across Tech, Health, Finance, Entertainment and Football niches worldwide.
-      </p>
-      <div class="advertise-stats">
-        <div class="stat-item">
-          <span class="stat-num">10K+</span>
-          <span class="stat-label">Daily Readers</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">🌍</span>
-          <span class="stat-label">Global Family</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">24/7</span>
-          <span class="stat-label">Publishing</span>
-        </div>
-      </div>
-      <div class="advertise-btns">
-        <a href="mailto:n.c.denis@riclivo.com?subject=Advertising%20on%20Riclivo.online" class="btn-email">
-          Email Us
-        </a>
-        <a href="https://wa.me/2349034100339?text=Hi%2C%20I%27d%20like%20to%20advertise%20on%20Riclivo.online" 
-           target="_blank" class="btn-whatsapp">
-          WhatsApp Us
+      
+      <div class="sidebar-widget">
+        <div class="widget-head">Sponsored</div>
+        <a href="https://comentrix.riclivo.com" target="_blank" class="ad-ctryx">
+          <div class="ad-ctryx-logo-fb">🔍</div>
+          <div class="ad-ctryx-body">
+            <div class="ad-ctryx-title">Are Comments Real?</div>
+            <div class="ad-ctryx-text">Detect fake engagement & bots instantly with Comentryx AI.</div>
+            <span class="ad-ctryx-btn">Try Free →</span>
+          </div>
         </a>
       </div>
-    </div>
-  </div>
 
-  
-  <div class="sidebar-widget">
-    <p class="widget-title">Newsletter</p>
-    <div style="padding:16px 16px 8px;">
-      <div class="email-widget-title">Stay Ahead of the News</div>
-      <p class="email-widget-text">
-        Get top trending stories in Tech, Health, Finance and Football delivered to your inbox. No spam, ever.
-      </p>
-    </div>
-    <iframe 
-      src="https://docs.google.com/forms/d/e/1FAIpQLSdcf7Jkn5GMyyyLx_6i8KGMOYuh42gXEUlRQFSuCtxjXVHLrw/viewform?embedded=true" 
-      width="100%" 
-      height="420" 
-      frameborder="0" 
-      marginheight="0" 
-      marginwidth="0"
-      style="display:block;">
-      Loading
-    </iframe>
-  </div>
-
-  
-  <div class="sidebar-widget">
-    <p class="widget-title">Trending Now</p>
-    <div style="padding: 16px;">
       
+      <div class="sidebar-widget">
+        <div class="widget-head">Advertise With Us</div>
+        <div class="ad-place">
+          <div class="ad-place-title">Place Your Advert Here</div>
+          <div class="ad-place-text">Reach thousands of daily readers across 8 niches worldwide.</div>
+          <div class="ad-stats-row">
+            <div class="ad-stat"><span class="ad-stat-n">10K+</span><span class="ad-stat-l">Daily Readers</span></div>
+            <div class="ad-stat"><span class="ad-stat-n">🌍</span><span class="ad-stat-l">Global Family</span></div>
+            <div class="ad-stat"><span class="ad-stat-n">24/7</span><span class="ad-stat-l">Publishing</span></div>
+          </div>
+          <a href="mailto:n.c.denis@riclivo.com?subject=Advertising on Riclivo.online" class="ad-btn-email">📧 Email Us</a>
+          <a href="https://wa.me/2349034100339?text=Hi, I'd like to advertise on Riclivo.online" target="_blank" class="ad-btn-wa">💬 WhatsApp Us</a>
+        </div>
+      </div>
+
       
-      <a href="/post/my-first-post/" style="display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;text-decoration:none;">
-        <span style="background:var(--blue-dark);color:var(--gold);font-size:11px;font-weight:800;padding:4px 8px;border-radius:4px;flex-shrink:0;">Apr 6</span>
-        <span style="font-size:13px;font-weight:600;color:var(--text-dark);line-height:1.4;">My First Post</span>
-      </a>
-      
-    </div>
-  </div>
+      <div class="sidebar-widget">
+        <div class="widget-head">🔥 Trending Now</div>
+        <div class="trending-list">
+          
+          <a href="/advertise/" class="trending-item-w">
+            <span class="t-num">1</span>
+            <div>
+              <span class="t-cat"></span>
+              <div class="t-title">Advertise With Us</div>
+            </div>
+          </a>
+          
+          <a href="/contact/" class="trending-item-w">
+            <span class="t-num">2</span>
+            <div>
+              <span class="t-cat"></span>
+              <div class="t-title">Contact Us</div>
+            </div>
+          </a>
+          
+          <a href="/newsletter/" class="trending-item-w">
+            <span class="t-num">3</span>
+            <div>
+              <span class="t-cat"></span>
+              <div class="t-title">Newsletter</div>
+            </div>
+          </a>
+          
+          <a href="/privacy/" class="trending-item-w">
+            <span class="t-num">4</span>
+            <div>
+              <span class="t-cat"></span>
+              <div class="t-title">Privacy Policy</div>
+            </div>
+          </a>
+          
+          <a href="/posts/2026-04-11-ais-disruption-in-newsrooms-a-double-edged-sword/" class="trending-item-w">
+            <span class="t-num">5</span>
+            <div>
+              <span class="t-cat">Technology</span>
+              <div class="t-title">AI&#39;s Disruption in Newsrooms: A Double-Edged Sword</div>
+            </div>
+          </a>
+          
+          <a href="/post/my-first-post/" class="trending-item-w">
+            <span class="t-num">6</span>
+            <div>
+              <span class="t-cat"></span>
+              <div class="t-title">My First Post</div>
+            </div>
+          </a>
+          
+        </div>
+      </div>
 
-</aside>
-
-
+    </aside>
   </div>
 </div>
     </main>
-    <footer class="site-footer">
-  <div class="footer-top">
+    <footer class="rl-footer">
+  <div class="footer-main">
 
-    
-    <div class="footer-brand">
+    <div>
       <img src="/images/riclivo-logo.png" alt="Riclivo.online"
-           onerror="this.style.display='none'"/>
-      <p class="footer-desc">
-        Your daily source for trending Tech & AI, Health, Finance, Entertainment and Football news. A RicLivo Technologies Media platform serving a global audience 24/7.
-      </p>
-      <div class="footer-social">
-        <a href="https://twitter.com/riclivo" target="_blank" title="Twitter/X">𝕏</a>
-        <a href="https://instagram.com/riclivo" target="_blank" title="Instagram">📸</a>
-        <a href="https://youtube.com/@RiclivoTv" target="_blank" title="YouTube">▶</a>
-        <a href="https://tiktok.com/@riclivo" target="_blank" title="TikTok">🎵</a>
-        <a href="https://pinterest.com/riclivo" target="_blank" title="Pinterest">📌</a>
-        <a href="https://reddit.com/u/riclivo" target="_blank" title="Reddit">🔴</a>
+           style="height:44px;margin-bottom:14px;" onerror="this.style.display='none'"/>
+      <span class="footer-brand-text">Riclivo<em>.online</em></span>
+      <p class="footer-desc">Your daily source for trending Tech, AI, Health, Finance, Entertainment, Football and Sports news. A RicLivo Technologies Media platform serving a global audience 24/7.</p>
+      <div class="footer-social-icons">
+        <a href="https://twitter.com/riclivo" target="_blank" class="social-icon-btn si-x" title="Twitter/X">𝕏</a>
+        <a href="https://instagram.com/riclivo" target="_blank" class="social-icon-btn si-ig" title="Instagram">📸</a>
+        <a href="https://youtube.com/@RiclivoTv" target="_blank" class="social-icon-btn si-yt" title="YouTube">▶</a>
+        <a href="https://tiktok.com/@riclivo" target="_blank" class="social-icon-btn si-tt" title="TikTok">🎵</a>
+        <a href="https://pinterest.com/riclivo" target="_blank" class="social-icon-btn si-pt" title="Pinterest">📌</a>
+        <a href="https://reddit.com/u/riclivo" target="_blank" class="social-icon-btn si-rd" title="Reddit">🔴</a>
       </div>
     </div>
 
-    
     <div class="footer-col">
       <div class="footer-col-title">Categories</div>
       <a href="/categories/technology/">⚡ Tech & AI</a>
-      <a href="/categories/health/">💊 Health & Wellness</a>
-      <a href="/categories/finance/">💰 Finance & Money</a>
+      <a href="/categories/health/">💊 Health</a>
+      <a href="/categories/finance/">💰 Finance</a>
       <a href="/categories/entertainment/">🎬 Entertainment</a>
       <a href="/categories/football/">⚽ Football</a>
+      <a href="/categories/sports/">🏆 Sports</a>
       <a href="/categories/news/">📰 News</a>
     </div>
 
-    
     <div class="footer-col">
       <div class="footer-col-title">Company</div>
-      <a href="/about/">About Riclivo</a>
+      <a href="https://riclivo.com/#about" target="_blank">About Riclivo</a>
       <a href="/advertise/">Advertise With Us</a>
       <a href="/privacy/">Privacy Policy</a>
       <a href="/contact/">Contact Us</a>
@@ -337,34 +642,25 @@ document.addEventListener('DOMContentLoaded', function() {
       <a href="https://comentrix.riclivo.com" target="_blank">Comentryx App</a>
     </div>
 
-    
     <div class="footer-col">
-      <div class="footer-col-title">Contact</div>
+      <div class="footer-col-title">Connect</div>
       <a href="mailto:n.c.denis@riclivo.com">📧 n.c.denis@riclivo.com</a>
-      <a href="https://wa.me/2349034100339?text=Hi%2C%20I%27d%20like%20to%20advertise%20on%20Riclivo.online" target="_blank">💬 WhatsApp Us</a>
+      <a href="https://wa.me/2349034100339" target="_blank">💬 WhatsApp Us</a>
+      <a href="/newsletter/">📬 Newsletter</a>
       <a href="https://comentrix.riclivo.com" target="_blank">🔍 Try Comentryx</a>
-      <div style="margin-top:12px;">
-        <div style="font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Newsletter</div>
-        <a href="#newsletter" style="background:var(--gold);color:var(--blue-dark);padding:8px 14px;border-radius:4px;font-weight:700;font-size:12px;">Subscribe Free →</a>
-      </div>
     </div>
 
   </div>
 
-  
   <div class="footer-bottom">
     <span>© 2026 Riclivo.online — All rights reserved.</span>
-    <span>
-      Powered by 
-      <a href="https://riclivo.com" target="_blank">RicLivo Technologies</a>
-    </span>
+    <span>Powered by <a href="https://riclivo.com" target="_blank">RicLivo Technologies</a></span>
     <span>
       <a href="/privacy/">Privacy</a> &nbsp;·&nbsp;
       <a href="/contact/">Contact</a> &nbsp;·&nbsp;
       <a href="/advertise/">Advertise</a>
     </span>
   </div>
-
 </footer>
 </body>
 

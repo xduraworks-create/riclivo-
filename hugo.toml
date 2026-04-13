@@ -3,51 +3,23 @@ languageCode = "en-us"
 title = "Riclivo.online"
 theme = "PaperMod"
 paginate = 12
+enableRobotsTXT = true
 
 [params]
-  description = "Your daily source for Tech, AI, Health, Finance, Entertainment & Football news"
+  description = "Your daily source for Tech, AI, Health, Finance, Entertainment, Football & Sports news"
   author = "Riclivo Editorial Team"
   defaultTheme = "light"
   disableThemeToggle = true
   ShowReadingTime = true
   ShowShareButtons = false
   ShowPostNavLinks = true
-  ShowBreadCrumbs = true
-  ShowToc = true
-  ShowCodeCopyButtons = true
+  ShowBreadCrumbs = false
+  ShowToc = false
   DateFormat = "January 2, 2006"
-  
-  [params.homeInfoParams]
-    Title = "Welcome to Riclivo.online 🌍"
-    Content = "Your daily source for Tech, AI, Health, Finance, Entertainment & Football news"
 
   [params.cover]
     linkFullImages = true
     responsiveImages = true
-
-[[params.socialIcons]]
-  name = "twitter"
-  url = "https://twitter.com/riclivo"
-
-[[params.socialIcons]]
-  name = "instagram"
-  url = "https://instagram.com/riclivo"
-
-[[params.socialIcons]]
-  name = "youtube"
-  url = "https://youtube.com/@RiclivoTv"
-
-[[params.socialIcons]]
-  name = "pinterest"
-  url = "https://pinterest.com/riclivo"
-
-[[params.socialIcons]]
-  name = "reddit"
-  url = "https://reddit.com/u/riclivo"
-
-[[params.socialIcons]]
-  name = "tiktok"
-  url = "https://tiktok.com/@riclivo"
 
 [taxonomies]
   category = "categories"
@@ -79,6 +51,10 @@ paginate = 12
     url = "/categories/football/"
     weight = 6
   [[menu.main]]
+    name = "Sports"
+    url = "/categories/sports/"
+    weight = 7
+  [[menu.main]]
     name = "News"
     url = "/categories/news/"
-    weight = 7
+    weight = 8
